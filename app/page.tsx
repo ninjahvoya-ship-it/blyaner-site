@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, Bed, Clock, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop, CalendarBlank } from "@phosphor-icons/react";
+import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, Bed, Clock, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop, CalendarBlank, X, Trash, SlidersHorizontal } from "@phosphor-icons/react";
 
 export default function LandingPage() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -40,6 +40,9 @@ export default function LandingPage() {
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+        .mockup-shadow {
+            box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.15), -10px 10px 20px rgba(0, 0, 0, 0.1);
         }
       `}} />
 
@@ -122,11 +125,9 @@ export default function LandingPage() {
               <h2 className="text-4xl lg:text-5xl font-black mb-12 text-center text-[#2D2B3D]">Что внутри?</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-                  {/* Чувство времени */}
                   <div className="bg-[#F2EFFF] rounded-[40px] p-8 relative overflow-hidden flex flex-col shadow-sm hover:-translate-y-1 transition-transform">
                       <div className="absolute top-6 right-6 w-8 h-8 rounded-full border border-[#8B7EC8] flex items-center justify-center text-[#8B7EC8] rotate-45"><ArrowUp weight="bold" /></div>
                       <div className="w-12 h-12 bg-white rounded-2xl flex justify-center items-center mb-6 shadow-sm"><Clock weight="fill" className="text-2xl text-[#8B7EC8]" /></div>
-                      
                       <h3 className="text-2xl font-black mb-4 text-[#2D2B3D]">Чувство времени</h3>
                       <p className="font-medium text-gray-600 mb-8 text-[15px] leading-relaxed">Встроенный таймер фокуса. Никаких левых приложений. Нажала Play прямо на задаче — время пошло. Смотришь в статистику и наконец-то учишься оценивать свои времязатраты реалистично.</p>
                       
@@ -145,11 +146,9 @@ export default function LandingPage() {
                       </div>
                   </div>
 
-                  {/* Крупные дистанции */}
                   <div className="bg-[#D4E84D] rounded-[40px] p-8 relative overflow-hidden flex flex-col shadow-sm hover:-translate-y-1 transition-transform md:mt-8">
                       <div className="absolute top-6 right-6 w-8 h-8 rounded-full border border-[#2D2B3D] flex items-center justify-center text-[#2D2B3D] rotate-45"><ArrowUp weight="bold" /></div>
                       <div className="w-12 h-12 bg-[#2D2B3D] rounded-2xl flex justify-center items-center mb-6 shadow-sm"><PaintBrush weight="fill" className="text-2xl text-[#D4E84D]" /></div>
-                      
                       <h3 className="text-2xl font-black mb-4 text-[#2D2B3D]">Крупные дистанции</h3>
                       <p className="font-medium text-[#2D2B3D]/80 mb-8 text-[15px] leading-relaxed">Цветовое кодирование и дедлайны. В Блянере сразу видно, какая задача какому проекту отдана, перед кем горит ответственность и каким проектом была занята неделя больше всего.</p>
                       
@@ -171,11 +170,9 @@ export default function LandingPage() {
                       </div>
                   </div>
 
-                  {/* Ресурс */}
                   <div className="bg-gradient-to-br from-[#8B7EC8] to-[#6A5AAB] rounded-[40px] p-8 relative overflow-hidden flex flex-col shadow-sm hover:-translate-y-1 transition-transform">
                       <div className="absolute top-6 right-6 w-8 h-8 rounded-full border border-white/50 flex items-center justify-center text-white rotate-45"><ArrowUp weight="bold" /></div>
                       <div className="w-12 h-12 bg-white/20 rounded-2xl flex justify-center items-center mb-6 shadow-sm backdrop-blur-sm"><MoonStars weight="fill" className="text-2xl text-white" /></div>
-                      
                       <h3 className="text-2xl font-black mb-4 text-white">Ресурс</h3>
                       <p className="font-medium text-white/90 mb-8 text-[15px] leading-relaxed">Две кнопки в телефоне. Никаких умных браслетов. Планер сам считает часы, строит график и показывает связь между твоим режимом и тем, сколько ты реально вывозишь за день.</p>
                       
@@ -208,12 +205,12 @@ export default function LandingPage() {
           </div>
       </section>
 
-      {/* PWA Section - На всю ширину экрана */}
-      <section className="py-24 bg-gradient-to-br from-[#8B7EC8] to-[#6A5AAB] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2D2B3D] opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
+      {/* PWA Section */}
+      <section className="py-24 px-6">
+          <div className="max-w-7xl mx-auto bg-gradient-to-br from-[#8B7EC8] to-[#6A5AAB] rounded-[40px] p-10 lg:p-16 grid md:grid-cols-2 gap-12 items-center relative overflow-hidden shadow-lg border border-white/10 hover:shadow-2xl transition-shadow duration-500">
+              <div className="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2D2B3D] opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
               <div className="relative z-10 flex justify-center">
                   <div className="w-full max-w-sm bg-white/10 backdrop-blur-xl rounded-[32px] p-8 border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:-translate-y-2 transition-transform duration-500">
                       <div className="flex justify-between items-center mb-6">
@@ -289,67 +286,58 @@ export default function LandingPage() {
           </div>
       </section>
 
-      {/* Подвал (С мокапом десктопа) */}
-      <section className="py-10 px-6 max-w-7xl mx-auto mb-20">
-          <div className="bg-[#F4F3F8] rounded-[40px] pt-16 px-10 overflow-hidden flex flex-col items-center border border-gray-200 shadow-inner">
-              
-              <div className="text-center mb-12 relative z-10">
-                  <h2 className="text-5xl lg:text-6xl font-black mb-6 text-[#2D2B3D] leading-tight tracking-tight">Ну что, <br/><span className="text-[#8B7EC8]">погнали?</span></h2>
-                  <p className="text-xl font-medium text-gray-500 mb-10 max-w-lg mx-auto">Твоя новая, честная и наглядная неделя начинается прямо сейчас.</p>
-                  
-                  <div className="flex items-center justify-center gap-4">
-                      <a href="https://blyaner.vercel.app/week" className="bg-[#8B7EC8] text-white px-10 py-5 rounded-full text-xl font-bold shadow-lg hover:scale-105 transition-transform flex items-center gap-3">
+      {/* Подвал (Новый дизайн с ТВОЕЙ картинкой) */}
+      <section className="w-full bg-[#D4E84D] relative overflow-hidden pt-20">
+          <div className="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] bg-white opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
+          <div className="absolute bottom-[-20%] right-10 w-[600px] h-[600px] bg-[#8B7EC8] opacity-10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply"></div>
+
+          <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 items-center gap-12 lg:gap-0 min-h-[600px] pb-20 lg:pb-0">
+              <div className="relative z-20 py-16 lg:py-0 lg:pr-10 xl:pr-20">
+                  <h2 className="text-5xl lg:text-[64px] font-black mb-6 text-[#2D2B3D] leading-[1.05] tracking-tight">
+                      Ну что, <br/>
+                      <span className="text-[#8B7EC8]">погнали?</span>
+                  </h2>
+                  <p className="text-xl font-medium text-[#2D2B3D]/70 mb-10 max-w-md leading-relaxed">
+                      Твоя новая, честная и наглядная неделя начинается прямо сейчас. 
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                      <a href="https://blyaner.vercel.app/week" className="bg-[#8B7EC8] text-white px-10 py-5 rounded-full text-xl font-bold shadow-[0_10px_30px_rgba(139,126,200,0.4)] hover:bg-[#6A5AAB] transition-all hover:-translate-y-1 flex items-center gap-3">
                           Войти в Блянер <ArrowRight weight="bold" />
                       </a>
                   </div>
               </div>
-              
-              {/* Десктопный мокап Блянера */}
-              <div className="relative w-full max-w-4xl mt-4 translate-y-8 hover:translate-y-4 transition-transform duration-500 z-10">
-                  <div className="w-full bg-gray-100 rounded-t-2xl border-t border-x border-gray-200 px-4 py-3 flex items-center gap-2 shadow-sm">
-                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                      <div className="mx-auto text-xs font-bold text-gray-400 bg-white px-4 py-1 rounded-md shadow-sm border border-gray-200">blyaner.app</div>
-                  </div>
-                  <div className="w-full bg-white rounded-b-2xl border-x border-b border-gray-200 shadow-2xl h-[400px] flex overflow-hidden">
-                      <div className="w-20 bg-gray-50 border-r border-gray-200 flex flex-col items-center py-6 gap-6">
-                          <div className="w-10 h-10 rounded-full bg-[#8B7EC8] text-white flex items-center justify-center font-bold text-sm shadow-sm">АВ</div>
-                          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-gray-200"><FolderOpen weight="fill" className="text-gray-400 text-xl" /></div>
-                          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-gray-200"><CalendarBlank weight="fill" className="text-[#8B7EC8] text-xl" /></div>
-                          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-gray-200"><Timer weight="fill" className="text-gray-400 text-xl" /></div>
-                      </div>
-                      <div className="flex-1 bg-white p-8 grid grid-cols-4 gap-6">
-                          <div className="space-y-4 border-r border-gray-100 pr-6">
-                              <h4 className="font-black text-gray-400 mb-6 tracking-wide">ПН 12</h4>
-                              <div className="bg-[#F2EFFF] p-4 rounded-2xl border border-[#8B7EC8]/20 shadow-sm">
-                                  <div className="flex items-center gap-2 mb-2"><div className="w-2 h-2 rounded-full bg-[#8B7EC8]"></div><span className="text-[10px] font-bold text-gray-400 uppercase">Book Tracker</span></div>
-                                  <p className="font-bold text-gray-800 text-sm">Собрать дизайн-систему</p>
-                              </div>
+
+              {/* Правая часть: Картинка Мокапа */}
+              <div className="relative w-full h-full hidden lg:block z-10">
+                  <div className="absolute top-1/2 -translate-y-1/2 -right-[15%] w-[120%] xl:w-[130%] transform rotate-[-2deg] hover:rotate-0 transition-transform duration-700 ease-out z-10">
+                      <div className="w-full bg-[#E5E7EB] rounded-t-2xl border border-[#D1D5DB] px-4 py-2.5 flex items-center gap-2 relative">
+                          <div className="flex gap-2">
+                              <div className="w-3 h-3 rounded-full bg-[#FF5F56] shadow-inner"></div>
+                              <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-inner"></div>
+                              <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-inner"></div>
                           </div>
-                          <div className="space-y-4 border-r border-gray-100 pr-6 relative">
-                              <div className="absolute top-0 bottom-0 left-0 bg-gray-50 -z-10 -ml-3 w-[120%] rounded-xl"></div>
-                              <h4 className="font-black text-[#2D2B3D] mb-6 flex items-center gap-2"><span className="w-6 h-6 bg-[#8B7EC8] text-white rounded-full flex items-center justify-center text-xs">13</span> ВТ</h4>
-                              <div className="bg-[#FCE7F3] p-4 rounded-2xl border border-pink-200 shadow-sm">
-                                  <div className="flex items-center gap-2 mb-2"><div className="w-2 h-2 rounded-full bg-pink-400"></div><span className="text-[10px] font-bold text-gray-400 uppercase">Jellyfish Lab</span></div>
-                                  <p className="font-bold text-gray-800 text-sm">Пост в канал</p>
-                              </div>
-                              <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm opacity-50">
-                                  <p className="font-bold text-gray-400 text-sm line-through">Созвон</p>
-                              </div>
-                          </div>
-                          <div className="space-y-4 border-r border-gray-100 pr-6">
-                              <h4 className="font-black text-gray-400 mb-6 tracking-wide">СР 14</h4>
-                              <div className="bg-[#D4E84D]/20 p-4 rounded-2xl border border-[#D4E84D]/50 shadow-sm">
-                                  <div className="flex items-center gap-2 mb-2"><div className="w-2 h-2 rounded-full bg-[#D4E84D]"></div><span className="text-[10px] font-bold text-gray-500 uppercase">Фриланс</span></div>
-                                  <p className="font-bold text-gray-800 text-sm">Подключить базу данных</p>
-                              </div>
-                          </div>
-                          <div className="space-y-4">
-                              <h4 className="font-black text-gray-400 mb-6 tracking-wide">ЧТ 15</h4>
+                          <div className="absolute left-1/2 -translate-x-1/2 bg-white px-6 py-1 rounded-md text-[10px] font-bold text-gray-500 flex items-center gap-1 shadow-sm border border-gray-200">
+                              blyaner.app
                           </div>
                       </div>
+                      
+                      <div className="w-full rounded-b-2xl overflow-hidden mockup-shadow border-x border-b border-gray-200 bg-white">
+                          <img 
+                              src="/desktop-mockup.jpg" 
+                              alt="Blyaner Desktop App" 
+                              className="w-full h-auto object-cover object-left-top"
+                          />
+                      </div>
                   </div>
+              </div>
+
+              {/* Мобильная версия картинки */}
+              <div className="block lg:hidden relative w-full h-[300px] mt-4 overflow-hidden rounded-t-[32px] mockup-shadow z-10">
+                  <img 
+                      src="/desktop-mockup.jpg" 
+                      alt="Blyaner Desktop App" 
+                      className="absolute top-0 left-0 w-full h-[400px] object-cover object-left-top"
+                  />
               </div>
           </div>
       </section>
