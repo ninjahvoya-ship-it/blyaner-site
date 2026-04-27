@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, Bed, Clock, X, Trash, SlidersHorizontal, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop } from "@phosphor-icons/react";
+import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, CalendarBlank, Bed, Clock, X, Trash, SlidersHorizontal, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop } from "@phosphor-icons/react";
 
 export default function LandingPage() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
