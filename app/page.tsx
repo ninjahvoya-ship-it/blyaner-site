@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, CalendarBlank, Bed, Clock, X, Trash, SlidersHorizontal, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop } from "@phosphor-icons/react";
+import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, Bed, Clock, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop, CalendarBlank } from "@phosphor-icons/react";
 
 export default function LandingPage() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -12,17 +12,46 @@ export default function LandingPage() {
   };
 
   return (
-    <div className={`min-h-screen font-sans selection:bg-[#D4E84D] selection:text-[#8B7EC8] ${isDarkTheme ? 'bg-[#3B2D71]' : 'bg-white'}`}>
-      
+    <div className="min-h-screen font-sans selection:bg-[#D4E84D] selection:text-[#8B7EC8] bg-white overflow-x-hidden">
+      <style dangerouslySetInnerHTML={{__html: `
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: #D4E84D;
+            padding: 20px 0;
+            transform: rotate(-2deg) scale(1.05);
+            box-shadow: 0 10px 30px rgba(212,232,77,0.2);
+            position: relative;
+            z-index: 20;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+        .marquee-item {
+            display: inline-block;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #2D2B3D;
+            margin-right: 40px;
+            text-transform: uppercase;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+      `}} />
+
       {/* Навигация */}
       <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
           <div className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-full px-6 py-3 flex justify-between items-center w-full max-w-5xl shadow-sm">
               <div className="text-xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2">
                   <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
               </div>
-              <Link href="/week" className="bg-[#D4E84D] text-[#2D2B3D] px-6 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-transform shadow-sm">
+              <a href="https://blyaner.vercel.app/week" className="bg-[#D4E84D] text-[#2D2B3D] px-6 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-transform shadow-sm">
                   Войти
-              </Link>
+              </a>
           </div>
       </nav>
 
@@ -38,9 +67,9 @@ export default function LandingPage() {
               <p className="text-lg text-gray-500 leading-relaxed mb-10 font-medium max-w-md">
                   Курса «как стать лучшей версией себя» в комплекте нет. Просто планер, чтобы не забыть, что нужно сделать, и трекер сна, чтобы наконец понять, почему на это нет сил.
               </p>
-              <Link href="/week" className="inline-block bg-[#8B7EC8] text-white px-10 py-4 rounded-full text-lg font-bold shadow-lg hover:bg-[#6A5AAB] transition-all hover:-translate-y-1">
+              <a href="https://blyaner.vercel.app/week" className="inline-block bg-[#8B7EC8] text-white px-10 py-4 rounded-full text-lg font-bold shadow-lg hover:bg-[#6A5AAB] transition-all hover:-translate-y-1">
                   Попробовать
-              </Link>
+              </a>
           </div>
 
           <div className="rounded-[40px] bg-[#F2EFFF] relative h-[500px] flex justify-center items-center overflow-hidden hidden md:flex">
@@ -73,35 +102,19 @@ export default function LandingPage() {
           </div>
       </section>
 
-      {/* Манифест */}
-      <section className="px-6 py-10 max-w-7xl mx-auto">
-          <div className="rounded-[40px] bg-[#D4E84D] relative overflow-hidden flex flex-col items-center justify-center text-center py-20">
-              <div className="absolute inset-0 opacity-50 top-10" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 20, 50 10 T 100 10' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat-x", backgroundSize: "100px 20px" }}></div>
-              <div className="absolute inset-0 opacity-50 bottom-10" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 20, 50 10 T 100 10' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat-x", backgroundSize: "100px 20px", backgroundPosition: "50px 0" }}></div>
-              
-              <h2 className="text-4xl md:text-5xl font-black text-[#2D2B3D] mb-12 relative z-10">
-                  «Я думала, это будет быстро.<br/>Спойлер: <span className="relative inline-block after:content-[''] after:absolute after:-left-[5%] after:top-[55%] after:w-[110%] after:h-[6px] after:bg-[#D4E84D] after:-rotate-2 after:rounded-full text-gray-500">нихуя</span>.»
-              </h2>
-              
-              <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative z-10 px-4">
-                  <div className="text-center">
-                      <div className="w-12 h-12 mx-auto bg-[#2D2B3D] rounded-full text-[#D4E84D] flex items-center justify-center mb-4 text-2xl"><X weight="fill" /></div>
-                      <h3 className="font-bold text-xl mb-2 text-[#2D2B3D]">Никаких оплат</h3>
-                      <p className="font-medium text-[#2D2B3D]/70">Бесплатно, потому что делала для себя.</p>
-                  </div>
-                  <div className="text-center">
-                      <div className="w-12 h-12 mx-auto bg-[#2D2B3D] rounded-full text-[#D4E84D] flex items-center justify-center mb-4 text-2xl"><Trash weight="fill" /></div>
-                      <h3 className="font-bold text-xl mb-2 text-[#2D2B3D]">Без перегруза</h3>
-                      <p className="font-medium text-[#2D2B3D]/70">В Miro с телефона не зайдёшь. Тут — два тапа.</p>
-                  </div>
-                  <div className="text-center">
-                      <div className="w-12 h-12 mx-auto bg-[#2D2B3D] rounded-full text-[#D4E84D] flex items-center justify-center mb-4 text-2xl"><SlidersHorizontal weight="fill" /></div>
-                      <h3 className="font-bold text-xl mb-2 text-[#2D2B3D]">Идеально под загоны</h3>
-                      <p className="font-medium text-[#2D2B3D]/70">Бесит фича? Зайди в настройки и выключи.</p>
-                  </div>
-              </div>
+      {/* Похихикать (Бегущая строка) */}
+      <div className="marquee-container mt-10 mb-24">
+          <div className="marquee-content">
+              <span className="marquee-item"><Asterisk weight="fill" className="text-[#8B7EC8] inline-block align-middle mr-2" />СПОНСОР ТВОИХ ПЕРЕНЕСЕННЫХ ДЕЛ</span>
+              <span className="marquee-item"><Asterisk weight="fill" className="text-[#8B7EC8] inline-block align-middle mr-2" />ДЛЯ ТЕХ, ЧЕЙ ПЛАН Б — ПРОСТО ЛЕЧЬ СПАТЬ</span>
+              <span className="marquee-item"><Asterisk weight="fill" className="text-[#8B7EC8] inline-block align-middle mr-2" />ПЛАНЫ + РЕАЛЬНОСТЬ = БЛЯНЕР</span>
+              <span className="marquee-item"><Asterisk weight="fill" className="text-[#8B7EC8] inline-block align-middle mr-2" />ЕДИНСТВЕННЫЙ ПЛАНЕР, ГДЕ ЛЮБИМАЯ КНОПКА «СПЛЮ»</span>
+              <span className="marquee-item"><Asterisk weight="fill" className="text-[#8B7EC8] inline-block align-middle mr-2" />СПОНСОР ТВОИХ ПЕРЕНЕСЕННЫХ ДЕЛ</span>
+              <span className="marquee-item"><Asterisk weight="fill" className="text-[#8B7EC8] inline-block align-middle mr-2" />ДЛЯ ТЕХ, ЧЕЙ ПЛАН Б — ПРОСТО ЛЕЧЬ СПАТЬ</span>
+              <span className="marquee-item"><Asterisk weight="fill" className="text-[#8B7EC8] inline-block align-middle mr-2" />ПЛАНЫ + РЕАЛЬНОСТЬ = БЛЯНЕР</span>
+              <span className="marquee-item"><Asterisk weight="fill" className="text-[#8B7EC8] inline-block align-middle mr-2" />ЕДИНСТВЕННЫЙ ПЛАНЕР, ГДЕ ЛЮБИМАЯ КНОПКА «СПЛЮ»</span>
           </div>
-      </section>
+      </div>
 
       {/* Фичи */}
       <section className="py-20 px-6">
@@ -195,13 +208,12 @@ export default function LandingPage() {
           </div>
       </section>
 
-      {/* PWA Section */}
-      <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto bg-gradient-to-br from-[#8B7EC8] to-[#6A5AAB] rounded-[40px] p-10 lg:p-16 grid md:grid-cols-2 gap-12 items-center relative overflow-hidden shadow-lg border border-white/10 hover:shadow-2xl transition-shadow duration-500">
-              
-              <div className="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
-              <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2D2B3D] opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
+      {/* PWA Section - На всю ширину экрана */}
+      <section className="py-24 bg-gradient-to-br from-[#8B7EC8] to-[#6A5AAB] relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2D2B3D] opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
 
+          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
               <div className="relative z-10 flex justify-center">
                   <div className="w-full max-w-sm bg-white/10 backdrop-blur-xl rounded-[32px] p-8 border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:-translate-y-2 transition-transform duration-500">
                       <div className="flex justify-between items-center mb-6">
@@ -277,7 +289,7 @@ export default function LandingPage() {
           </div>
       </section>
 
-      {/* Подвал (Новый дизайн с мокапом десктопа) */}
+      {/* Подвал (С мокапом десктопа) */}
       <section className="py-10 px-6 max-w-7xl mx-auto mb-20">
           <div className="bg-[#F4F3F8] rounded-[40px] pt-16 px-10 overflow-hidden flex flex-col items-center border border-gray-200 shadow-inner">
               
@@ -286,33 +298,28 @@ export default function LandingPage() {
                   <p className="text-xl font-medium text-gray-500 mb-10 max-w-lg mx-auto">Твоя новая, честная и наглядная неделя начинается прямо сейчас.</p>
                   
                   <div className="flex items-center justify-center gap-4">
-                      <Link href="/week" className="bg-[#8B7EC8] text-white px-10 py-5 rounded-full text-xl font-bold shadow-lg hover:scale-105 transition-transform flex items-center gap-3">
+                      <a href="https://blyaner.vercel.app/week" className="bg-[#8B7EC8] text-white px-10 py-5 rounded-full text-xl font-bold shadow-lg hover:scale-105 transition-transform flex items-center gap-3">
                           Войти в Блянер <ArrowRight weight="bold" />
-                      </Link>
+                      </a>
                   </div>
               </div>
               
               {/* Десктопный мокап Блянера */}
               <div className="relative w-full max-w-4xl mt-4 translate-y-8 hover:translate-y-4 transition-transform duration-500 z-10">
-                  {/* Мак ОС Хедер */}
                   <div className="w-full bg-gray-100 rounded-t-2xl border-t border-x border-gray-200 px-4 py-3 flex items-center gap-2 shadow-sm">
                       <div className="w-3 h-3 rounded-full bg-red-400"></div>
                       <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                       <div className="w-3 h-3 rounded-full bg-green-400"></div>
                       <div className="mx-auto text-xs font-bold text-gray-400 bg-white px-4 py-1 rounded-md shadow-sm border border-gray-200">blyaner.app</div>
                   </div>
-                  {/* Тело приложения (Упрощенная сетка) */}
                   <div className="w-full bg-white rounded-b-2xl border-x border-b border-gray-200 shadow-2xl h-[400px] flex overflow-hidden">
-                      {/* Sidebar */}
                       <div className="w-20 bg-gray-50 border-r border-gray-200 flex flex-col items-center py-6 gap-6">
                           <div className="w-10 h-10 rounded-full bg-[#8B7EC8] text-white flex items-center justify-center font-bold text-sm shadow-sm">АВ</div>
                           <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-gray-200"><FolderOpen weight="fill" className="text-gray-400 text-xl" /></div>
                           <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-gray-200"><CalendarBlank weight="fill" className="text-[#8B7EC8] text-xl" /></div>
                           <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-gray-200"><Timer weight="fill" className="text-gray-400 text-xl" /></div>
                       </div>
-                      {/* Grid */}
                       <div className="flex-1 bg-white p-8 grid grid-cols-4 gap-6">
-                          {/* Колонка 1 */}
                           <div className="space-y-4 border-r border-gray-100 pr-6">
                               <h4 className="font-black text-gray-400 mb-6 tracking-wide">ПН 12</h4>
                               <div className="bg-[#F2EFFF] p-4 rounded-2xl border border-[#8B7EC8]/20 shadow-sm">
@@ -320,7 +327,6 @@ export default function LandingPage() {
                                   <p className="font-bold text-gray-800 text-sm">Собрать дизайн-систему</p>
                               </div>
                           </div>
-                          {/* Колонка 2 */}
                           <div className="space-y-4 border-r border-gray-100 pr-6 relative">
                               <div className="absolute top-0 bottom-0 left-0 bg-gray-50 -z-10 -ml-3 w-[120%] rounded-xl"></div>
                               <h4 className="font-black text-[#2D2B3D] mb-6 flex items-center gap-2"><span className="w-6 h-6 bg-[#8B7EC8] text-white rounded-full flex items-center justify-center text-xs">13</span> ВТ</h4>
@@ -332,7 +338,6 @@ export default function LandingPage() {
                                   <p className="font-bold text-gray-400 text-sm line-through">Созвон</p>
                               </div>
                           </div>
-                          {/* Колонка 3 */}
                           <div className="space-y-4 border-r border-gray-100 pr-6">
                               <h4 className="font-black text-gray-400 mb-6 tracking-wide">СР 14</h4>
                               <div className="bg-[#D4E84D]/20 p-4 rounded-2xl border border-[#D4E84D]/50 shadow-sm">
@@ -340,7 +345,6 @@ export default function LandingPage() {
                                   <p className="font-bold text-gray-800 text-sm">Подключить базу данных</p>
                               </div>
                           </div>
-                          {/* Колонка 4 */}
                           <div className="space-y-4">
                               <h4 className="font-black text-gray-400 mb-6 tracking-wide">ЧТ 15</h4>
                           </div>
