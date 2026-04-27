@@ -297,8 +297,8 @@ export default function LandingPage() {
                   {/* Мак ОС Хедер */}
                   <div className="w-full bg-gray-100 rounded-t-2xl border-t border-x border-gray-200 px-4 py-3 flex items-center gap-2 shadow-sm">
                       <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                      <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                      <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
                       <div className="mx-auto text-xs font-bold text-gray-400 bg-white px-4 py-1 rounded-md shadow-sm border border-gray-200">blyaner.app</div>
                   </div>
                   {/* Тело приложения (Упрощенная сетка) */}
