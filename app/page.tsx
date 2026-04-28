@@ -399,11 +399,12 @@ export default function LandingPage() {
 
               {/* Верхняя часть с текстом */}
               <div className="relative z-10 w-full flex mt-6">
-                  {/* Задаем левый отступ (margin-left), чтобы контент начинался ровно там, где заканчивается воображаемая 'картинка' */}
-                  <div className="md:ml-[35%] flex flex-col items-start text-left max-w-2xl w-full">
+                  {/* Отступ 25% от левого края блока на десктопе */}
+                  <div className="md:ml-[25%] flex flex-col items-start text-left max-w-2xl w-full">
                       
-                      <h2 className="text-3xl md:text-5xl font-black text-[#2D2B3D] mb-8 leading-[1.1] tracking-tight">
-                          Присоединяйся к закрытому тесту.<br/>Пока мы всё не переделали.
+                      {/* Ограничиваем ширину контейнера, чтобы текст "Пока мы всё не переделали." принудительно переносился */}
+                      <h2 className="text-3xl md:text-5xl font-black text-[#2D2B3D] mb-8 leading-[1.1] tracking-tight max-w-[20rem] md:max-w-xl lg:max-w-2xl">
+                          Присоединяйся к закрытому тесту.<br />Пока мы всё не переделали.
                       </h2>
                       
                       <form className="w-full max-w-md bg-white rounded-full p-1.5 shadow-sm flex relative hover:shadow-md transition-shadow" onSubmit={(e) => { e.preventDefault(); }}>
@@ -427,11 +428,11 @@ export default function LandingPage() {
               <div className="relative z-10 flex flex-col md:flex-row items-end w-full mt-16 md:mt-0">
                   
                   {/* Логотип слева */}
-                  <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 w-[35%] shrink-0">
+                  <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 w-[25%] shrink-0">
                       <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
                   </div>
                   
-                  {/* Ссылки (Строго по той же линии md:ml-[35%], что и текст сверху!) */}
+                  {/* Ссылки (Строго по той же линии md:ml-[25%], что и текст сверху!) */}
                   <div className="flex flex-wrap gap-4 md:gap-8 text-sm font-bold text-[#2D2B3D]/60 w-full justify-start md:justify-start">
                       <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">На главную</button>
                       <a href="#" className="hover:text-[#2D2B3D] transition-colors">Политика</a>
