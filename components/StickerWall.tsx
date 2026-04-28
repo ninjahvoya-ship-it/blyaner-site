@@ -1,290 +1,135 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { User, Star, CalendarX, Bed, Moon, Timer, Sun, MagicWand, Warning, Heart, Coffee, Palette, PersonSimpleRun, BatteryLow, Brain, GameController, Flag, HandsPraying, BookOpen, DeviceMobile, Cloud, SmileyWink, Buildings, MaskSad, Robot, BellRinging, YinYang, FlagBanner, Fire, Calculator } from "@phosphor-icons/react";
+
+const data = [
+  { phrase: "Она опять скачала новый планер...", tag: "Внутренний критик", icon: User },
+  { phrase: "Зато этот красивый и фиолетовенький!", tag: "Внутренний ребёнок", icon: Star },
+  { phrase: "Давай просто оставим всё на понедельник и будем страдать.", tag: "Прокрастинатор", icon: CalendarX },
+  { phrase: "Нажимаем «Сплю» и расходимся.", tag: "Здравый смысл", icon: Bed },
+  { phrase: "Я скачала его только ради тёмной темы.", tag: "Эстет", icon: Moon },
+  { phrase: "Ого, таймер показал 4 часа. Пойду лягу.", tag: "Реалист", icon: Timer },
+  { phrase: "Завтра точно начну!", tag: "Оптимист", icon: Sun },
+  { phrase: "Где кнопка «пускай оно как-то само»?", tag: "Лентяй", icon: MagicWand },
+  { phrase: "Уже 14:00, день потерян, переносим всё.", tag: "Паникер", icon: Warning },
+  { phrase: "Этот планер знает, что я прокрастинирую, и не осуждает.", tag: "Друг", icon: Heart },
+  { phrase: "Запланировать отдых — это тоже работа, да?", tag: "Уставший", icon: Coffee },
+  { phrase: "Главное — красиво раскрасить теги.", tag: "Перфекционист", icon: Palette },
+  { phrase: "Перенос задач — мой любимый вид спорта.", tag: "Спортсмен", icon: PersonSimpleRun },
+  { phrase: "Я не ленивая, я энергосберегающая.", tag: "Эко-активист", icon: BatteryLow },
+  { phrase: "Может, если я запишу задачу, она решится сама?", tag: "Философ", icon: Brain },
+  { phrase: "Сон 12 часов. Достижение разблокировано.", tag: "Геймер", icon: GameController },
+  { phrase: "Дедлайн? Я думала, это просто рекомендация.", tag: "Бунтарь", icon: Flag },
+  { phrase: "Пятница — день прощения долгов (себе).", tag: "Священник", icon: HandsPraying },
+  { phrase: "Кто вообще придумал работать по понедельникам?", tag: "Историк", icon: BookOpen },
+  { phrase: "Сделала одну задачу. Награждаю себя тремя часами тиктока.", tag: "Тиктокер", icon: DeviceMobile },
+  { phrase: "Пока я спала, таски сами себя не сделали. Странно.", tag: "Мечтатель", icon: Cloud },
+  { phrase: "Обожаю это чувство, когда переносишь всё на следующую неделю.", tag: "Садист", icon: SmileyWink },
+  { phrase: "Мне нужен планер для планера.", tag: "Архитектор", icon: Buildings },
+  { phrase: "Таймер показал 12 минут. Я выжата как лимон.", tag: "Драматик", icon: MaskSad },
+  { phrase: "Забыла нажать «Встала». Теперь планер думает, что я в коме.", tag: "Киборг", icon: Robot },
+  { phrase: "Выделила проект красным, чтобы игнорировать его было тревожнее.", tag: "Тревожный", icon: BellRinging },
+  { phrase: "В любой непонятной ситуации нажимай «Сплю».", tag: "Гуру", icon: YinYang },
+  { phrase: "Где здесь кнопка «сдаться»?", tag: "Слабак", icon: FlagBanner },
+  { phrase: "Просто добавлю огоньков, чтобы казалось, что я молодец.", tag: "Иллюзионист", icon: Fire },
+  { phrase: "Выполнено 0 из 10. Отличный результат!", tag: "Математик", icon: Calculator }
+];
+
+const styles = [
+  { card: "bg-white text-gray-800 border-gray-100", icon_bg: "bg-gray-200", icon_color: "text-gray-500", tag_color: "text-gray-400" },
+  { card: "bg-[#D4E84D] text-[#2D2B3D] border-[#D4E84D]", icon_bg: "bg-[#2D2B3D]", icon_color: "text-[#D4E84D]", tag_color: "text-[#2D2B3D]/60" },
+  { card: "bg-[#8B7EC8] text-white border-[#6A5AAB]", icon_bg: "bg-white/20", icon_color: "text-white", tag_color: "text-white/70" },
+  { card: "bg-[#2D2B3D] text-white border-gray-700", icon_bg: "bg-gray-700", icon_color: "text-gray-300", tag_color: "text-gray-400" },
+  { card: "bg-[#F9A8D4] text-gray-900 border-pink-300", icon_bg: "bg-gray-900", icon_color: "text-[#F9A8D4]", tag_color: "text-gray-700/60" }
+];
 
 export default function StickerWall() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  // Using pure CSS animations for this version (like in the original HTML)
+  // to perfectly match the previous implementation
+  
+  const stickers = [...data]
+    .sort(() => 0.5 - Math.random())
+    .map((item, index) => {
+      const style = styles[Math.floor(Math.random() * styles.length)];
+      const w = Math.floor(Math.random() * (290 - 240 + 1)) + 240;
+      const rot = Math.floor(Math.random() * (16 - (-16) + 1)) + (-16);
+      const delay = Math.floor(Math.random() * 5) + 1;
+      
+      let mt = Math.floor(Math.random() * (10 - (-20) + 1)) + (-20);
+      let ml = Math.floor(Math.random() * (-5 - (-25) + 1)) + (-25);
 
-  useEffect(() => {
-    // Dynamically load Matter.js to avoid SSR issues
-    const script = document.createElement("script");
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js";
-    script.async = true;
-    script.onload = () => {
-      initPhysics();
-    };
-    document.body.appendChild(script);
-
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-      // Also need to clean up Matter instance if it exists
-    };
-  }, []);
-
-  const initPhysics = () => {
-    // @ts-ignore
-    if (!window.Matter || !containerRef.current) return;
-
-    const stickersData = [
-      ["Она опять скачала новый планер...", "Внутренний критик"],
-      ["Зато этот красивый и фиолетовенький!", "Внутренний ребёнок"],
-      ["Давай просто оставим всё на понедельник и будем страдать.", "Прокрастинатор"],
-      ["Нажимаем «Сплю» и расходимся.", "Здравый смысл"],
-      ["Я скачала его только ради тёмной темы.", "Эстет"],
-      ["Ого, таймер показал 4 часа. Пойду лягу.", "Реалист"],
-      ["Завтра точно начну!", "Оптимист"],
-      ["Надо было в Notion делать...", "Душнила"],
-      ["Опять дедлайн про*бала", "Тревожность"],
-      ["Слишком сложно, я удаляю", "Паникёр"],
-      ["А может просто блокнот купить?", "Ретроград"],
-      ["Где тут кнопка сделать заебись?", "Заказчик"],
-      ["Я просто хочу спать", "Ты"]
-    ];
-
-    // Colors
-    const colors = ['bg-[#E8DDF4]', 'bg-[#D3E851]', 'bg-[#FEEBF6]', 'bg-[#E3F2FD]'];
-
-    const container = containerRef.current;
-    if (!container) return;
-    
-    // Clear existing
-    container.innerHTML = '';
-
-    // @ts-ignore
-    const Engine = Matter.Engine,
-          // @ts-ignore
-          Render = Matter.Render,
-          // @ts-ignore
-          Runner = Matter.Runner,
-          // @ts-ignore
-          MouseConstraint = Matter.MouseConstraint,
-          // @ts-ignore
-          Mouse = Matter.Mouse,
-          // @ts-ignore
-          World = Matter.World,
-          // @ts-ignore
-          Bodies = Matter.Bodies,
-          // @ts-ignore
-          Composite = Matter.Composite;
-
-    // Create engine
-    const engine = Engine.create({
-      gravity: { x: 0, y: 0.5, scale: 0.001 } // Чуть более плавная гравитация
+      return { ...item, style, w, rot, delay, mt, ml, id: index };
     });
-
-    // Create renderer
-    const render = Render.create({
-      element: container,
-      engine: engine,
-      options: {
-        width: container.clientWidth,
-        height: container.clientHeight,
-        background: 'transparent',
-        wireframes: false,
-        hasBounds: true
-      }
-    });
-
-    // Create boundaries
-    const padding = 10;
-    const cw = container.clientWidth;
-    const ch = container.clientHeight;
-    
-    const ground = Bodies.rectangle(cw / 2, ch + 25, cw, 50, { 
-        isStatic: true,
-        render: { fillStyle: 'transparent' }
-    });
-    const leftWall = Bodies.rectangle(-25, ch / 2, 50, ch, { 
-        isStatic: true,
-        render: { fillStyle: 'transparent' }
-    });
-    const rightWall = Bodies.rectangle(cw + 25, ch / 2, 50, ch, { 
-        isStatic: true,
-        render: { fillStyle: 'transparent' }
-    });
-    const ceiling = Bodies.rectangle(cw / 2, -100, cw, 50, { // Потолок выше, чтобы стикеры падали из-за экрана
-        isStatic: true,
-        render: { fillStyle: 'transparent' }
-    });
-
-    World.add(engine.world, [ground, leftWall, rightWall, ceiling]);
-
-    const domBodies: any[] = [];
-    const htmlElements: HTMLElement[] = [];
-
-    // Create sticker DOM elements and physics bodies
-    stickersData.forEach((item, i) => {
-        // Создаем DOM элемент
-        const el = document.createElement('div');
-        
-        // Рандомный цвет, отступ и поворот
-        const colorClass = colors[Math.floor(Math.random() * colors.length)];
-        const initRotation = (Math.random() - 0.5) * 40; // -20 to 20 deg
-        
-        el.className = `absolute z-10 flex flex-col items-center justify-center p-5 rounded-2xl shadow-sm border border-black/5 cursor-grab active:cursor-grabbing hover:shadow-md transition-shadow select-none ${colorClass}`;
-        
-        // Размеры (примерные, подстраиваем под текст)
-        const width = 280;
-        const height = 120;
-        
-        el.style.width = width + 'px';
-        el.style.height = height + 'px';
-        
-        el.innerHTML = `
-            <p class="font-bold text-[#2D2B3D] text-center mb-3 text-[15px] leading-tight">"${item[0]}"</p>
-            <div class="inline-block bg-white/60 px-3 py-1 rounded-full text-xs font-bold text-[#2D2B3D]/60 uppercase tracking-wider backdrop-blur-sm">
-                ${item[1]}
-            </div>
-        `;
-        
-        container.appendChild(el);
-        htmlElements.push(el);
-
-        // Распределяем начальные позиции по ширине, но сбрасываем сверху (отрицательный Y)
-        const startX = 100 + (Math.random() * (cw - 200));
-        const startY = -150 - (Math.random() * 800); // Разброс по высоте, чтобы падали по очереди
-
-        // Физическое тело
-        const body = Bodies.rectangle(startX, startY, width, height, {
-            restitution: 0.6, // Упругость (отскок)
-            friction: 0.1,    // Трение
-            frictionAir: 0.02, // Сопротивление воздуха (для плавности полета)
-            angle: (initRotation * Math.PI) / 180, // Начальный поворот
-            render: {
-                fillStyle: 'transparent',
-                strokeStyle: 'transparent'
-            }
-        });
-
-        // Случайный начальный импульс (легкое вращение при падении)
-        // @ts-ignore
-        Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.05);
-
-        domBodies.push(body);
-        World.add(engine.world, body);
-    });
-
-    // Add mouse control
-    const mouse = Mouse.create(render.canvas);
-    const mouseConstraint = MouseConstraint.create(engine, {
-        mouse: mouse,
-        constraint: {
-            stiffness: 0.2,
-            render: {
-                visible: false
-            }
-        }
-    });
-
-    World.add(engine.world, mouseConstraint);
-    
-    // Keep mouse in sync with rendering
-    render.mouse = mouse;
-
-    // Скролл-фикс (чтобы колесико мыши работало поверх холста)
-    mouseConstraint.mouse.element.removeEventListener("mousewheel", mouseConstraint.mouse.mousewheel);
-    mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
-
-    // Sync DOM elements with physics bodies
-    const updateDOM = () => {
-        domBodies.forEach((body, i) => {
-            const el = htmlElements[i];
-            
-            // Центрируем элемент относительно координат центра физического тела
-            const posX = body.position.x - el.offsetWidth / 2;
-            const posY = body.position.y - el.offsetHeight / 2;
-            
-            // Получаем угол в радианах
-            const angle = body.angle;
-            
-            // Применяем CSS трансформации (включая Z-индекс при взаимодействии)
-            el.style.transform = `translate(${posX}px, ${posY}px) rotate(${angle}rad)`;
-            
-            // Если тело спит (не двигается), можно понизить производительность, но пока не нужно
-            // Если объект за пределами видимости снизу (упал мимо границ как-то), возвращаем наверх
-            if (body.position.y > ch + 200) {
-                 // @ts-ignore
-                 Matter.Body.setPosition(body, { 
-                     x: 100 + Math.random() * (cw - 200), 
-                     y: -100 
-                 });
-                 // @ts-ignore
-                 Matter.Body.setVelocity(body, { x: 0, y: 0 });
-            }
-        });
-        
-        requestAnimationFrame(updateDOM);
-    };
-
-    // Запуск движка и рендера
-    Render.run(render);
-    
-    // Создаем свой runner для лучшего контроля
-    const runner = Runner.create();
-    Runner.run(runner, engine);
-
-    // Запускаем синхронизацию DOM
-    updateDOM();
-
-    // Обработка ресайза
-    const handleResize = () => {
-        if (!container) return;
-        
-        const newCw = container.clientWidth;
-        const newCh = container.clientHeight;
-        
-        render.canvas.width = newCw;
-        render.canvas.height = newCh;
-        
-        // Обновляем позиции стен
-        // @ts-ignore
-        Matter.Body.setPosition(ground, { x: newCw / 2, y: newCh + 25 });
-        // Увеличиваем ширину пола и потолка при ресайзе
-        // @ts-ignore
-        Matter.Body.setVertices(ground, Matter.Bodies.rectangle(newCw / 2, newCh + 25, newCw + 100, 50).vertices);
-        
-        // @ts-ignore
-        Matter.Body.setPosition(rightWall, { x: newCw + 25, y: newCh / 2 });
-        // @ts-ignore
-        Matter.Body.setVertices(rightWall, Matter.Bodies.rectangle(newCw + 25, newCh / 2, 50, newCh * 2).vertices);
-        
-        // @ts-ignore
-        Matter.Body.setPosition(leftWall, { x: -25, y: newCh / 2 });
-        // @ts-ignore
-        Matter.Body.setVertices(leftWall, Matter.Bodies.rectangle(-25, newCh / 2, 50, newCh * 2).vertices);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      Render.stop(render);
-      Runner.stop(runner);
-      World.clear(engine.world, false);
-      Engine.clear(engine);
-      render.canvas.remove();
-      render.canvas = null as any;
-      render.context = null as any;
-      render.textures = {};
-    };
-  };
 
   return (
-    <section className="py-24 px-6 bg-[#F8F8FB] relative overflow-hidden border-t border-gray-100">
-      <div className="max-w-7xl mx-auto text-center relative z-20 mb-8 pointer-events-none">
+    <section className="relative border-y border-gray-200 pt-32 pb-32 overflow-x-hidden flex flex-col bg-[#F4F3F8]" style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E")`
+    }}>
+      
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .sticker-wrapper {
+            animation: float-slow 4s ease-in-out infinite;
+            perspective: 1000px;
+        }
+        .sticker-card {
+            transform: rotate(var(--rotation));
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .sticker-wrapper:hover .sticker-card {
+            transform: rotate(0deg) scale(1.12) translateY(-10px) !important;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            z-index: 50;
+        }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1s; }
+        .delay-3 { animation-delay: 1.5s; }
+        .delay-4 { animation-delay: 2s; }
+        .delay-5 { animation-delay: 2.5s; }
+      `}} />
+
+      <div className="max-w-4xl mx-auto text-center relative z-20 px-6 mb-16">
         <h2 className="text-4xl lg:text-5xl font-black mb-4 text-[#2D2B3D]">Внутренние голоса</h2>
         <p className="text-lg text-gray-500 font-medium">Что думает твой мозг, когда ты пытаешься спланировать неделю.</p>
-        <p className="text-sm font-bold text-[#8B7EC8] mt-4 uppercase tracking-widest bg-white/80 inline-block px-4 py-1.5 rounded-full border border-gray-200">Можно трогать и кидать</p>
       </div>
 
-      {/* Контейнер для физики */}
-      <div 
-        ref={containerRef} 
-        className="w-full max-w-[1200px] mx-auto h-[600px] relative rounded-[40px] bg-white border border-gray-200 overflow-hidden shadow-inner cursor-crosshair"
-      >
-        {/* Сюда будут инжектиться стикеры и canvas Matter.js */}
+      <div className="flex flex-wrap justify-center items-center w-full max-w-[1500px] mx-auto px-4 relative z-10" id="stickers-container">
+        {stickers.map((item) => {
+          const IconComponent = item.icon;
+          return (
+            <div 
+              key={item.id}
+              className={`sticker-wrapper delay-${item.delay} shrink-0 z-10 hover:z-50`}
+              style={{
+                marginTop: `${item.mt}px`, 
+                marginLeft: `${item.ml}px`, 
+                marginBottom: '-15px'
+              }}
+            >
+              <div 
+                className={`sticker-card ${item.style.card} p-5 rounded-3xl shadow-lg border w-full h-full flex flex-col justify-between`} 
+                style={{
+                  width: `${item.w}px`, 
+                  minHeight: '130px', 
+                  '--rotation': `${item.rot}deg`
+                } as any}
+              >
+                <p className="font-bold text-base leading-snug mb-5">{item.phrase}</p>
+                <div className={`flex items-center gap-2 ${item.style.tag_color}`}>
+                  <div className={`w-6 h-6 rounded-full ${item.style.icon_bg} ${item.style.icon_color} flex items-center justify-center shrink-0`}>
+                    <IconComponent weight="fill" className="text-xs" />
+                  </div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest">{item.tag}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
