@@ -218,7 +218,7 @@ export default function LandingPage() {
               <div className="relative z-10 flex justify-center">
                   <div className="w-full max-w-sm bg-white/10 backdrop-blur-xl rounded-[32px] p-8 border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:-translate-y-2 transition-transform duration-500">
                       <div className="flex justify-between items-center mb-6">
-                          <span className="text-white font-bold text-lg tracking-wide">Темная тема</span>
+                          <span className="text-white font-bold text-lg tracking-wide">Тёмная тема</span>
                           <div className="w-12 h-7 bg-[#D4E84D] rounded-full relative shadow-inner">
                               <div className="absolute right-1 top-1 w-5 h-5 bg-[#2D2B3D] rounded-full shadow-sm flex items-center justify-center">
                                   <div className="w-1.5 h-1.5 bg-[#D4E84D] rounded-full"></div>
@@ -264,7 +264,7 @@ export default function LandingPage() {
               <div className={`absolute inset-0 bg-gradient-to-br from-[#8B7EC8] to-[#6A5AAB] transition-opacity duration-700 pointer-events-none ${isDarkTheme ? 'opacity-100' : 'opacity-0'}`}></div>
 
               <div className="relative z-10 mb-12">
-                  <h2 className={`text-4xl lg:text-5xl font-black mb-4 transition-colors ${isDarkTheme ? 'text-white' : 'text-[#2D2B3D]'}`}>Темная тема. Как надо.</h2>
+                  <h2 className={`text-4xl lg:text-5xl font-black mb-4 transition-colors ${isDarkTheme ? 'text-white' : 'text-[#2D2B3D]'}`}>Тёмная тема. Как надо.</h2>
                   <p className={`text-xl font-medium transition-colors ${isDarkTheme ? 'text-white/80' : 'text-gray-500'}`}>Глубокий фиолетовый. Стекло. Кликни на переключатель.</p>
               </div>
 
@@ -409,7 +409,7 @@ export default function LandingPage() {
                           <EnvelopeSimple weight="bold" className="text-xl" />
                       </div>
                       <input type="email" placeholder="Куда скинуть ссылку?" required className="flex-1 bg-transparent px-4 outline-none text-[#2D2B3D] placeholder-gray-400 font-medium" />
-                      <button type="submit" className="w-12 h-12 bg-[#2D2B3D] text-white rounded-full flex items-center justify-center hover:bg-black transition-colors shrink-0">
+                      <button type="submit" className="w-12 h-12 bg-[#2D2B3D] text-white rounded-full flex items-center justify-center hover:bg-[#8B7EC8] transition-colors shrink-0">
                           <ArrowRight weight="bold" className="text-lg" />
                       </button>
                   </form>
