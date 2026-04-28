@@ -64,7 +64,7 @@ export default function LandingPage() {
                   <a href="#subscribe" className="px-4 py-1.5 rounded-full text-xs font-bold bg-[#D3E851] text-[#2D2B3D] shadow-sm flex items-center h-full hover:scale-105 transition-transform">Тестировать</a>
               </div>
 
-              <a href="https://blyaner.vercel.app/week" className="bg-gray-100 text-gray-400 px-5 py-1 flex items-center rounded-full text-sm font-bold cursor-not-allowed shadow-sm hidden md:flex">
+              <a href="#" onClick={(e) => { e.preventDefault(); alert('Блянер ещё в разработке! Оставляй почту внизу страницы и записывайся на закрытый тест.'); }} className="bg-[#D4E84D] text-[#2D2B3D] px-6 py-2.5 flex items-center rounded-full text-sm font-bold shadow-sm hidden md:flex hover:scale-105 transition-transform">
                   Войти
               </a>
           </div>
@@ -82,7 +82,7 @@ export default function LandingPage() {
               <p className="text-lg text-gray-500 leading-relaxed mb-10 font-medium max-w-md">
                   Курса «как стать лучшей версией себя» в комплекте нет. Просто планер, чтобы не забыть, что нужно сделать, и трекер сна, чтобы наконец понять, почему на это нет сил.
               </p>
-              <a href="https://blyaner.vercel.app/week" className="inline-block bg-[#8B7EC8] text-white px-10 py-4 rounded-full text-lg font-bold shadow-lg hover:bg-[#6A5AAB] transition-all hover:-translate-y-1">
+              <a href="#" onClick={(e) => { e.preventDefault(); alert('Блянер ещё в разработке! Оставляй почту внизу страницы и записывайся на закрытый тест.'); }} className="inline-block bg-[#8B7EC8] text-white px-10 py-4 rounded-full text-lg font-bold shadow-lg hover:bg-[#6A5AAB] transition-all hover:-translate-y-1">
                   Попробовать
               </a>
           </div>
@@ -371,7 +371,7 @@ export default function LandingPage() {
                           Твоя новая, честная и наглядная неделя начинается прямо сейчас.
                       </p>
                       
-                      <a href="https://blyaner.vercel.app/week" className="inline-flex items-center gap-3 px-8 py-4 bg-[#8B7EC8] text-white font-bold text-lg rounded-full shadow-[0_10px_30px_rgba(139,126,200,0.4)] hover:bg-[#6A5AAB] hover:-translate-y-1 transition-all duration-300">
+                      <a href="#" onClick={(e) => { e.preventDefault(); alert('Блянер ещё в разработке! Оставляй почту внизу страницы и записывайся на закрытый тест.'); }} className="inline-flex items-center gap-3 px-8 py-4 bg-[#8B7EC8] text-white font-bold text-lg rounded-full shadow-[0_10px_30px_rgba(139,126,200,0.4)] hover:bg-[#6A5AAB] hover:-translate-y-1 transition-all duration-300">
                           Войти в Блянер
                           <ArrowRight weight="bold" className="text-xl" />
                       </a>
