@@ -419,7 +419,7 @@ export default function LandingPage() {
                   </p>
 
                   {/* Нижняя часть: Логотип + Ссылки */}
-                  <div className="relative z-10 flex flex-col md:flex-row items-end w-full mt-8 md:mt-12 gap-8 md:gap-0">
+                  <div className="relative z-10 flex flex-col md:flex-row items-end w-full mt-12 md:mt-18 gap-8 md:gap-0">
                       
                       {/* Логотип (стоит по своей линии, но относительно экрана будет левее оси 30%, так как он в начале блока) */}
                       <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 md:-ml-[40%] md:w-[40%] shrink-0">
