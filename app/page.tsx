@@ -293,7 +293,7 @@ export default function LandingPage() {
       
       {/* Бегущая строка (Отзывы) */}
       <section id="reviews" className="py-12 bg-white overflow-hidden flex items-center justify-center relative">
-          <div className="w-[120%] -ml-[10%] bg-[#8B7EC8] py-6 overflow-hidden -rotate-2 border-y border-[#6A5AAB] relative z-10">
+          <div className="w-[120%] -ml-[10%] bg-[#8B7EC8] py-6 overflow-hidden -rotate-2 relative z-10">
               <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
               <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
 
@@ -390,7 +390,7 @@ export default function LandingPage() {
 
 
           {/* Финальный Лаймовый Подвал (Подписка) — FULL WIDTH EDGE-TO-EDGE */}
-      <section id="subscribe" className="w-full bg-[#D4E84D] rounded-t-[40px] md:rounded-t-[60px] pt-16 md:pt-24 pb-8 md:pb-12 relative overflow-hidden mt-[-20px] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+      <section id="subscribe" className="w-full bg-[#D4E84D] rounded-t-[40px] pt-16 md:pt-24 pb-8 md:pb-12 relative overflow-hidden mt-[-20px] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
           
           {/* Декоративная снежинка слева (играет роль картинки) */}
           <Asterisk weight="fill" className="absolute -left-32 md:-left-40 top-0 md:-top-20 text-[400px] md:text-[500px] text-white opacity-30 pointer-events-none" />
