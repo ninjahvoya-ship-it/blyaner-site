@@ -207,7 +207,7 @@ export default function LandingPage() {
 
       {/* PWA Section */}
       <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto bg-gradient-to-br from-[#8B7EC8] to-[#6A5AAB] rounded-[40px] p-10 lg:p-16 grid md:grid-cols-2 gap-12 items-center relative overflow-hidden shadow-lg border border-white/10 hover:shadow-2xl transition-shadow duration-500">
+          <div className="w-full bg-gradient-to-br from-[#8B7EC8] to-[#6A5AAB] rounded-[40px] p-10 lg:p-24 grid md:grid-cols-2 gap-12 items-center relative overflow-hidden shadow-lg border border-white/10 hover:shadow-2xl transition-shadow duration-500">
               <div className="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
               <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2D2B3D] opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -287,40 +287,9 @@ export default function LandingPage() {
       </section>
 
       
-      {/* Бегущие строки (Обычная + Отзывы) */}
-      <section className="py-20 flex flex-col gap-10 bg-[#F4F3F8] overflow-hidden">
-          {/* Обычная салатовая строка (едет влево) */}
-          <div className="w-[110%] -ml-[5%] bg-[#D4E84D] py-3 overflow-hidden rotate-1 shadow-sm opacity-50 relative z-0">
-              <div className="flex whitespace-nowrap animate-[marquee_20s_linear_infinite]">
-                  <div className="flex items-center gap-6 px-3">
-                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Переноси таски без стыда</span>
-                      <StarFour weight="fill" className="text-[#2D2B3D]" />
-                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Отдыхай без чувства вины</span>
-                      <StarFour weight="fill" className="text-[#2D2B3D]" />
-                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Планируй так, как живёшь</span>
-                      <StarFour weight="fill" className="text-[#2D2B3D]" />
-                  </div>
-                  <div className="flex items-center gap-6 px-3">
-                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Переноси таски без стыда</span>
-                      <StarFour weight="fill" className="text-[#2D2B3D]" />
-                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Отдыхай без чувства вины</span>
-                      <StarFour weight="fill" className="text-[#2D2B3D]" />
-                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Планируй так, как живёшь</span>
-                      <StarFour weight="fill" className="text-[#2D2B3D]" />
-                  </div>
-                  <div className="flex items-center gap-6 px-3">
-                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Переноси таски без стыда</span>
-                      <StarFour weight="fill" className="text-[#2D2B3D]" />
-                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Отдыхай без чувства вины</span>
-                      <StarFour weight="fill" className="text-[#2D2B3D]" />
-                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Планируй так, как живёшь</span>
-                      <StarFour weight="fill" className="text-[#2D2B3D]" />
-                  </div>
-              </div>
-          </div>
-
-          {/* Фиолетовая строка с отзывами (едет вправо) */}
-          <div className="w-[110%] -ml-[5%] bg-[#8B7EC8] py-5 overflow-hidden -rotate-2 shadow-xl border-y border-[#6A5AAB] relative z-10">
+      {/* Бегущая строка (Отзывы) */}
+      <section className="py-32 bg-white overflow-hidden flex items-center justify-center">
+          <div className="w-[110%] -ml-[5%] bg-[#8B7EC8] py-6 overflow-hidden -rotate-2 shadow-xl border-y border-[#6A5AAB] relative z-10">
               <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
               <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
 
@@ -329,55 +298,54 @@ export default function LandingPage() {
                   <div className="flex items-center">
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Поставила 5 задач, сделала ноль, перенесла на завтра. Интерфейс удобный!»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Поставила 5 задач, сделала ноль, перенесла на завтра. Интерфейс удобный!»</span>
                       </div>
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Наконец-то приложение, которое понимает, что я хочу спать.»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Наконец-то приложение, которое понимает, что я хочу спать.»</span>
                       </div>
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Таймер показал, что я работал 14 минут, а отдыхал 3 часа. Рекомендую.»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Таймер показал, что я работал 14 минут, а отдыхал 3 часа. Рекомендую.»</span>
                       </div>
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Мой любимый виджет — 'отложено 18 задач'.»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Мой любимый виджет — 'отложено 18 задач'.»</span>
                       </div>
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Удалила Notion, потому что там нет кнопки 'Сплю'.»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Удалила Notion, потому что там нет кнопки 'Сплю'.»</span>
                       </div>
                   </div>
                   {/* Сет отзывов 2 */}
                   <div className="flex items-center">
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Поставила 5 задач, сделала ноль, перенесла на завтра. Интерфейс удобный!»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Поставила 5 задач, сделала ноль, перенесла на завтра. Интерфейс удобный!»</span>
                       </div>
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Наконец-то приложение, которое понимает, что я хочу спать.»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Наконец-то приложение, которое понимает, что я хочу спать.»</span>
                       </div>
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Таймер показал, что я работал 14 минут, а отдыхал 3 часа. Рекомендую.»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Таймер показал, что я работал 14 минут, а отдыхал 3 часа. Рекомендую.»</span>
                       </div>
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Мой любимый виджет — 'отложено 18 задач'.»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Мой любимый виджет — 'отложено 18 задач'.»</span>
                       </div>
                       <div className="flex items-center gap-3 px-8 border-r border-white/20">
                           <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
-                          <span className="text-white font-semibold text-lg">«Удалила Notion, потому что там нет кнопки 'Сплю'.»</span>
+                          <span className="text-white font-semibold text-lg md:text-xl">«Удалила Notion, потому что там нет кнопки 'Сплю'.»</span>
                       </div>
                   </div>
               </div>
           </div>
       </section>
 
-
       {/* Новый Подвал (Светло-серый) */}
-      <section className="py-20 px-6 bg-[#F4F3F8]">
+      <section className="py-20 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
               <div className="bg-[#F8F8FB] rounded-[40px] pt-20 px-6 md:px-12 relative overflow-hidden flex flex-col items-center text-center shadow-sm border border-gray-100">
                   
