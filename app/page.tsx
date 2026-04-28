@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, Bed, Clock, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop, CalendarBlank, X, Trash, SlidersHorizontal, Star, EnvelopeSimple, LockKey } from "@phosphor-icons/react";
 
@@ -8,10 +8,31 @@ import StickerWall from "../components/StickerWall";
 
 export default function LandingPage() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
+
+  // Простой IntersectionObserver для подсветки активного пункта меню
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, { threshold: 0.5 }); // Блок считается активным, если виден хотя бы на 50%
+
+    // Наблюдаем за нужными секциями
+    const sections = ["features", "voices", "subscribe"];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen font-sans selection:bg-[#D4E84D] selection:text-[#8B7EC8] bg-white overflow-x-hidden">
@@ -59,9 +80,9 @@ export default function LandingPage() {
               </div>
               
               <div className="hidden md:flex items-center gap-6">
-                  <a href="#features" className="text-sm font-bold text-gray-500 hover:text-[#2D2B3D] transition-colors">Виджеты</a>
-                  <a href="#voices" className="text-sm font-bold text-gray-500 hover:text-[#2D2B3D] transition-colors">Похихикать</a>
-                  <a href="#subscribe" className="text-sm font-bold text-gray-500 hover:text-[#2D2B3D] transition-colors">Тестировать</a>
+                  <a href="#features" className={`text-sm font-bold transition-colors ${activeSection === 'features' ? 'text-[#8B7EC8]' : 'text-gray-500 hover:text-[#2D2B3D]'}`}>Виджеты</a>
+                  <a href="#voices" className={`text-sm font-bold transition-colors ${activeSection === 'voices' ? 'text-[#8B7EC8]' : 'text-gray-500 hover:text-[#2D2B3D]'}`}>Похихикать</a>
+                  <a href="#subscribe" className={`text-sm font-bold transition-colors ${activeSection === 'subscribe' ? 'text-[#8B7EC8]' : 'text-gray-500 hover:text-[#2D2B3D]'}`}>Тестировать</a>
               </div>
 
               <a href="#" onClick={(e) => { e.preventDefault(); alert('Блянер ещё в разработке! Оставляй почту внизу страницы и записывайся на закрытый тест.'); }} className="bg-[#D4E84D] text-[#2D2B3D] px-6 py-2.5 rounded-full text-sm font-bold shadow-sm hidden md:flex hover:scale-105 transition-transform">
