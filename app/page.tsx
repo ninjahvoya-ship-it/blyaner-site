@@ -21,7 +21,6 @@ export default function LandingPage() {
             background: #D4E84D;
             padding: 20px 0;
             transform: rotate(-2deg) scale(1.05);
-            box-shadow: 0 10px 30px rgba(212,232,77,0.2);
             position: relative;
             z-index: 20;
         }
@@ -55,6 +54,11 @@ export default function LandingPage() {
           <div className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-full px-6 py-3 flex justify-between items-center w-full max-w-5xl shadow-sm">
               <div className="text-xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2">
                   <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
+              </div>
+              <div className="hidden md:flex items-center gap-8 text-sm font-bold text-[#2D2B3D]/70">
+                  <button onClick={() => window.scrollTo({top: document.getElementById('features')?.offsetTop || 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">Что внутри?</button>
+                  <button onClick={() => window.scrollTo({top: document.getElementById('reviews')?.offsetTop || 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">Отзывы</button>
+                  <button onClick={() => window.scrollTo({top: document.getElementById('subscribe')?.offsetTop || 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">Подписка</button>
               </div>
               <a href="https://blyaner.vercel.app/week" className="bg-[#D4E84D] text-[#2D2B3D] px-6 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-transform shadow-sm">
                   Войти
@@ -124,7 +128,7 @@ export default function LandingPage() {
       </div>
 
       {/* Фичи */}
-      <section className="py-20 px-6">
+      <section id="features" className="py-20 px-6">
           <div className="max-w-7xl mx-auto">
               <h2 className="text-4xl lg:text-5xl font-black mb-12 text-center text-[#2D2B3D]">Что внутри?</h2>
               
@@ -293,7 +297,7 @@ export default function LandingPage() {
 
       
       {/* Бегущая строка (Отзывы) */}
-      <section className="py-6 bg-white overflow-hidden flex items-center justify-center">
+      <section id="reviews" className="py-6 bg-white overflow-hidden flex items-center justify-center">
           <div className="w-[120%] -ml-[10%] bg-[#8B7EC8] py-6 overflow-hidden -rotate-2 shadow-xl border-y border-[#6A5AAB] relative z-10">
               <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
               <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
@@ -391,15 +395,15 @@ export default function LandingPage() {
 
 
           {/* Финальный Лаймовый Подвал (Подписка) — FULL WIDTH EDGE-TO-EDGE */}
-      <section className="w-full bg-[#D4E84D] py-16 md:py-24 relative overflow-hidden">
+      <section id="subscribe" className="w-full bg-[#D4E84D] py-16 md:py-24 relative overflow-hidden">
           
           {/* Декоративная снежинка слева (играет роль картинки) */}
-          <Asterisk weight="fill" className="absolute -left-20 top-1/2 -translate-y-1/2 text-[400px] md:text-[500px] text-white opacity-40 pointer-events-none" />
+          <Asterisk weight="fill" className="absolute -left-32 md:-left-40 top-0 md:-top-20 text-[400px] md:text-[500px] text-white opacity-30 pointer-events-none" />
 
           {/* Верхняя часть с текстом */}
           <div className="relative z-10 w-full flex">
-              {/* Отступ 25% от левого края экрана на десктопе */}
-              <div className="w-full px-6 md:px-0 md:ml-[25%] flex flex-col items-start text-left">
+              {/* Отступ 30% от левого края экрана на десктопе */}
+              <div className="w-full px-6 md:px-0 md:ml-[30%] flex flex-col items-start text-left">
                   
                   <h2 className="text-3xl md:text-5xl font-black text-[#2D2B3D] mb-8 leading-[1.1] tracking-tight">
                       Присоединяйся к закрытому тесту.<br />Пока мы всё не переделали.
@@ -422,12 +426,12 @@ export default function LandingPage() {
                   {/* Нижняя часть: Логотип + Ссылки */}
                   <div className="relative z-10 flex flex-col md:flex-row items-end w-full mt-16 md:mt-24 gap-8 md:gap-0">
                       
-                      {/* Логотип (стоит по своей линии, но относительно экрана будет левее оси 25%, так как он в начале блока) */}
-                      <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 md:-ml-[25%] md:w-[25%] shrink-0">
+                      {/* Логотип (стоит по своей линии, но относительно экрана будет левее оси 30%, так как он в начале блока) */}
+                      <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 md:-ml-[30%] md:w-[30%] shrink-0">
                           <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
                       </div>
                       
-                      {/* Ссылки (Строго по той же линии 25%!) */}
+                      {/* Ссылки (Строго по той же линии 30%!) */}
                       <div className="flex flex-wrap gap-4 md:gap-8 text-sm font-bold text-[#2D2B3D]/60 w-full justify-start md:justify-start">
                           <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">На главную</button>
                           <a href="#" className="hover:text-[#2D2B3D] transition-colors">Политика</a>
