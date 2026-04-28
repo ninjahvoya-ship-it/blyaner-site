@@ -206,10 +206,11 @@ export default function LandingPage() {
       </section>
 
       {/* PWA Section */}
-      <section className="py-24 px-6">
-          <div className="w-full bg-gradient-to-br from-[#8B7EC8] to-[#6A5AAB] rounded-[40px] p-10 lg:p-24 grid md:grid-cols-2 gap-12 items-center relative overflow-hidden shadow-lg border border-white/10 hover:shadow-2xl transition-shadow duration-500">
-              <div className="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
-              <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2D2B3D] opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
+      <section className="w-full bg-[#8B7EC8] py-24 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-white opacity-10 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#2D2B3D] opacity-20 rounded-full blur-[120px] pointer-events-none"></div>
+
+          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
 
               <div className="relative z-10 flex justify-center">
                   <div className="w-full max-w-sm bg-white/10 backdrop-blur-xl rounded-[32px] p-8 border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:-translate-y-2 transition-transform duration-500">
@@ -288,7 +289,7 @@ export default function LandingPage() {
 
       
       {/* Бегущая строка (Отзывы) */}
-      <section className="py-32 bg-white overflow-hidden flex items-center justify-center">
+      <section className="py-12 bg-white overflow-hidden flex items-center justify-center">
           <div className="w-[110%] -ml-[5%] bg-[#8B7EC8] py-6 overflow-hidden -rotate-2 shadow-xl border-y border-[#6A5AAB] relative z-10">
               <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
               <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
