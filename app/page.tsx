@@ -394,12 +394,13 @@ export default function LandingPage() {
       <section className="py-12 px-6 bg-white">
           <div className="max-w-7xl mx-auto bg-[#D4E84D] rounded-[40px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-[420px]">
               
-              {/* Декоративная снежинка */}
-              <Asterisk weight="fill" className="absolute -left-20 -top-20 text-[400px] text-white opacity-40 pointer-events-none" />
+              {/* Декоративная снежинка слева (играет роль картинки) */}
+              <Asterisk weight="fill" className="absolute -left-20 top-1/2 -translate-y-1/2 text-[400px] text-white opacity-40 pointer-events-none" />
 
-              {/* ЦЕНТРИРУЮЩИЙ КОНТЕЙНЕР */}
-              <div className="relative z-10 w-full flex justify-center mt-6">
-                  <div className="flex flex-col items-start text-left max-w-2xl w-full">
+              {/* Верхняя часть с текстом */}
+              <div className="relative z-10 w-full flex mt-6">
+                  {/* Задаем левый отступ (margin-left), чтобы контент начинался ровно там, где заканчивается воображаемая 'картинка' */}
+                  <div className="md:ml-[35%] flex flex-col items-start text-left max-w-2xl w-full">
                       
                       <h2 className="text-3xl md:text-5xl font-black text-[#2D2B3D] mb-8 leading-[1.1] tracking-tight">
                           Присоединяйся к закрытому тесту.<br/>Пока мы всё не переделали.
@@ -423,19 +424,21 @@ export default function LandingPage() {
               </div>
 
               {/* Нижняя часть: Логотип + Ссылки */}
-              <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 items-end w-full mt-16 md:mt-0">
-                  <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0">
+              <div className="relative z-10 flex flex-col md:flex-row items-end w-full mt-16 md:mt-0">
+                  
+                  {/* Логотип слева */}
+                  <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 w-[35%] shrink-0">
                       <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
                   </div>
                   
-                  <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-sm font-bold text-[#2D2B3D]/60">
+                  {/* Ссылки (Строго по той же линии md:ml-[35%], что и текст сверху!) */}
+                  <div className="flex flex-wrap gap-4 md:gap-8 text-sm font-bold text-[#2D2B3D]/60 w-full justify-start md:justify-start">
                       <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">На главную</button>
                       <a href="#" className="hover:text-[#2D2B3D] transition-colors">Политика</a>
                       <a href="#" className="hover:text-[#2D2B3D] transition-colors">Контакты</a>
                   </div>
-
-                  <div className="hidden md:block"></div>
               </div>
+
           </div>
       </section>
 </div>
