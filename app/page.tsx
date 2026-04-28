@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, Bed, Clock, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop, CalendarBlank, X, Trash, SlidersHorizontal, Star, EnvelopeSimple, LockKey } from "@phosphor-icons/react";
 
+import StickerWall from "../components/StickerWall";
+
 export default function LandingPage() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -347,6 +349,8 @@ export default function LandingPage() {
               </div>
           </div>
       </section>
+
+      <StickerWall />
 
       {/* Новый Подвал (Светло-серый) */}
       <section className="py-20 px-6 bg-white">
