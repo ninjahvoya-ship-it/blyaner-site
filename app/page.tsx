@@ -286,61 +286,136 @@ export default function LandingPage() {
           </div>
       </section>
 
-      {/* Подвал (Новый дизайн с ТВОЕЙ картинкой) */}
-      <section className="w-full bg-[#D4E84D] relative overflow-hidden pt-20">
-          <div className="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] bg-white opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
-          <div className="absolute bottom-[-20%] right-10 w-[600px] h-[600px] bg-[#8B7EC8] opacity-10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply"></div>
-
-          <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 items-center gap-12 lg:gap-0 min-h-[600px] pb-20 lg:pb-0">
-              <div className="relative z-20 py-16 lg:py-0 lg:pr-10 xl:pr-20">
-                  <h2 className="text-5xl lg:text-[64px] font-black mb-6 text-[#2D2B3D] leading-[1.05] tracking-tight">
-                      Ну что, <br/>
-                      <span className="text-[#8B7EC8]">погнали?</span>
-                  </h2>
-                  <p className="text-xl font-medium text-[#2D2B3D]/70 mb-10 max-w-md leading-relaxed">
-                      Твоя новая, честная и наглядная неделя начинается прямо сейчас. 
-                  </p>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                      <a href="https://blyaner.vercel.app/week" className="bg-[#8B7EC8] text-white px-10 py-5 rounded-full text-xl font-bold shadow-[0_10px_30px_rgba(139,126,200,0.4)] hover:bg-[#6A5AAB] transition-all hover:-translate-y-1 flex items-center gap-3">
-                          Войти в Блянер <ArrowRight weight="bold" />
-                      </a>
+      
+      {/* Бегущие строки (Обычная + Отзывы) */}
+      <section className="py-20 flex flex-col gap-10 bg-[#F4F3F8] overflow-hidden">
+          {/* Обычная салатовая строка (едет влево) */}
+          <div className="w-[110%] -ml-[5%] bg-[#D4E84D] py-3 overflow-hidden rotate-1 shadow-sm opacity-50 relative z-0">
+              <div className="flex whitespace-nowrap animate-[marquee_20s_linear_infinite]">
+                  <div className="flex items-center gap-6 px-3">
+                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Переноси таски без стыда</span>
+                      <StarFour weight="fill" className="text-[#2D2B3D]" />
+                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Отдыхай без чувства вины</span>
+                      <StarFour weight="fill" className="text-[#2D2B3D]" />
+                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Планируй так, как живёшь</span>
+                      <StarFour weight="fill" className="text-[#2D2B3D]" />
+                  </div>
+                  <div className="flex items-center gap-6 px-3">
+                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Переноси таски без стыда</span>
+                      <StarFour weight="fill" className="text-[#2D2B3D]" />
+                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Отдыхай без чувства вины</span>
+                      <StarFour weight="fill" className="text-[#2D2B3D]" />
+                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Планируй так, как живёшь</span>
+                      <StarFour weight="fill" className="text-[#2D2B3D]" />
+                  </div>
+                  <div className="flex items-center gap-6 px-3">
+                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Переноси таски без стыда</span>
+                      <StarFour weight="fill" className="text-[#2D2B3D]" />
+                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Отдыхай без чувства вины</span>
+                      <StarFour weight="fill" className="text-[#2D2B3D]" />
+                      <span className="text-[#2D2B3D] font-black uppercase tracking-widest text-lg">Планируй так, как живёшь</span>
+                      <StarFour weight="fill" className="text-[#2D2B3D]" />
                   </div>
               </div>
+          </div>
 
-              {/* Правая часть: Картинка Мокапа */}
-              <div className="relative w-full h-full hidden lg:block z-10">
-                  <div className="absolute top-1/2 -translate-y-1/2 -right-[15%] w-[120%] xl:w-[130%] transform rotate-[-2deg] hover:rotate-0 transition-transform duration-700 ease-out z-10">
-                      <div className="w-full bg-[#E5E7EB] rounded-t-2xl border border-[#D1D5DB] px-4 py-2.5 flex items-center gap-2 relative">
-                          <div className="flex gap-2">
-                              <div className="w-3 h-3 rounded-full bg-[#FF5F56] shadow-inner"></div>
-                              <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-inner"></div>
-                              <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-inner"></div>
-                          </div>
-                          <div className="absolute left-1/2 -translate-x-1/2 bg-white px-6 py-1 rounded-md text-[10px] font-bold text-gray-500 flex items-center gap-1 shadow-sm border border-gray-200">
-                              blyaner.app
-                          </div>
+          {/* Фиолетовая строка с отзывами (едет вправо) */}
+          <div className="w-[110%] -ml-[5%] bg-[#8B7EC8] py-5 overflow-hidden -rotate-2 shadow-xl border-y border-[#6A5AAB] relative z-10">
+              <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
+
+              <div className="flex whitespace-nowrap w-max animate-[marquee-reverse_35s_linear_infinite] hover:[animation-play-state:paused] cursor-pointer">
+                  {/* Сет отзывов 1 */}
+                  <div className="flex items-center">
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Поставила 5 задач, сделала ноль, перенесла на завтра. Интерфейс удобный!»</span>
                       </div>
-                      
-                      <div className="w-full rounded-b-2xl overflow-hidden mockup-shadow border-x border-b border-gray-200 bg-white">
-                          <img 
-                              src="/desktop-mockup.jpg" 
-                              alt="Blyaner Desktop App" 
-                              className="w-full h-auto object-cover object-left-top"
-                          />
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Наконец-то приложение, которое понимает, что я хочу спать.»</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Таймер показал, что я работал 14 минут, а отдыхал 3 часа. Рекомендую.»</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Мой любимый виджет — 'отложено 18 задач'.»</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Удалила Notion, потому что там нет кнопки 'Сплю'.»</span>
                       </div>
                   </div>
-              </div>
-
-              {/* Мобильная версия картинки */}
-              <div className="block lg:hidden relative w-full h-[300px] mt-4 overflow-hidden rounded-t-[32px] mockup-shadow z-10">
-                  <img 
-                      src="/desktop-mockup.jpg" 
-                      alt="Blyaner Desktop App" 
-                      className="absolute top-0 left-0 w-full h-[400px] object-cover object-left-top"
-                  />
+                  {/* Сет отзывов 2 */}
+                  <div className="flex items-center">
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Поставила 5 задач, сделала ноль, перенесла на завтра. Интерфейс удобный!»</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Наконец-то приложение, которое понимает, что я хочу спать.»</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Таймер показал, что я работал 14 минут, а отдыхал 3 часа. Рекомендую.»</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Мой любимый виджет — 'отложено 18 задач'.»</span>
+                      </div>
+                      <div className="flex items-center gap-3 px-8 border-r border-white/20">
+                          <div className="flex text-[#D4E84D]"><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /><Star weight="fill" /></div>
+                          <span className="text-white font-semibold text-lg">«Удалила Notion, потому что там нет кнопки 'Сплю'.»</span>
+                      </div>
+                  </div>
               </div>
           </div>
       </section>
+
+
+      {/* Новый Подвал (Светло-серый) */}
+      <section className="py-20 px-6 bg-[#F4F3F8]">
+          <div className="max-w-7xl mx-auto">
+              <div className="bg-[#F8F8FB] rounded-[40px] pt-20 px-6 md:px-12 relative overflow-hidden flex flex-col items-center text-center shadow-sm border border-gray-100">
+                  
+                  <div className="relative z-10 max-w-2xl mx-auto">
+                      <h2 className="text-5xl md:text-6xl font-black text-[#2D2B3D] leading-tight mb-6">
+                          Ну что,<br/>
+                          <span className="text-[#8B7EC8]">погнали?</span>
+                      </h2>
+                      <p className="text-lg md:text-xl text-gray-500 font-medium mb-10 max-w-md mx-auto">
+                          Твоя новая, честная и наглядная неделя начинается прямо сейчас.
+                      </p>
+                      
+                      <a href="https://blyaner.vercel.app/week" className="inline-flex items-center gap-3 px-8 py-4 bg-[#8B7EC8] text-white font-bold text-lg rounded-full shadow-[0_10px_30px_rgba(139,126,200,0.4)] hover:bg-[#6A5AAB] hover:-translate-y-1 transition-all duration-300">
+                          Войти в Блянер
+                          <ArrowRight weight="bold" className="text-xl" />
+                      </a>
+                  </div>
+
+                  <div className="mt-16 w-full max-w-4xl relative z-20 translate-y-4 hover:translate-y-0 transition-transform duration-500 ease-out">
+                      <div className="w-full bg-[#E5E7EB] rounded-t-2xl border border-[#D1D5DB] px-4 py-3 flex items-center justify-center relative">
+                          <div className="absolute left-4 flex gap-2">
+                              <div className="w-3 h-3 rounded-full bg-[#FF5F56] shadow-inner border border-black/10"></div>
+                              <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-inner border border-black/10"></div>
+                              <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-inner border border-black/10"></div>
+                          </div>
+                          <div className="bg-white px-8 py-1 rounded-md text-[10px] font-bold text-gray-400 flex items-center gap-1.5 shadow-sm border border-gray-200">
+                              <LockKey weight="fill" /> blyaner.app
+                          </div>
+                      </div>
+                      
+                      <div className="w-full h-[300px] md:h-[450px] overflow-hidden mockup-shadow border-x border-gray-200 bg-white">
+                          <img src="/desktop-mockup.jpg" alt="Блянер Интерфейс" className="w-full h-full object-cover object-top" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
 
     </div>
   );
