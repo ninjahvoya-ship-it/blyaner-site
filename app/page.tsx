@@ -393,7 +393,7 @@ export default function LandingPage() {
       <section id="subscribe" className="w-full bg-[#D4E84D] rounded-t-[40px] pt-16 md:pt-24 pb-8 md:pb-12 relative overflow-hidden mt-[-20px] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
           
           {/* Декоративная снежинка слева (играет роль картинки) */}
-          <Asterisk weight="fill" className="absolute -left-48 md:-left-64 -top-20 md:-top-40 text-[400px] md:text-[500px] text-white opacity-30 pointer-events-none" />
+          <Asterisk weight="fill" className="absolute -left-40 md:-left-48 -top-10 md:-top-24 text-[400px] md:text-[500px] text-white opacity-30 pointer-events-none" />
 
           {/* Верхняя часть с текстом */}
           <div className="relative z-10 max-w-7xl mx-auto w-full flex">
