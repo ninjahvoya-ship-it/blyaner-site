@@ -390,7 +390,7 @@ export default function LandingPage() {
 
 
           {/* Финальный Лаймовый Подвал (Подписка) — FULL WIDTH EDGE-TO-EDGE */}
-      <section id="subscribe" className="w-full bg-[#D4E84D] rounded-t-[40px] md:rounded-t-[60px] py-16 md:py-24 relative overflow-hidden mt-[-20px] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+      <section id="subscribe" className="w-full bg-[#D4E84D] rounded-t-[40px] md:rounded-t-[60px] pt-16 md:pt-24 pb-8 md:pb-12 relative overflow-hidden mt-[-20px] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
           
           {/* Декоративная снежинка слева (играет роль картинки) */}
           <Asterisk weight="fill" className="absolute -left-32 md:-left-40 top-0 md:-top-20 text-[400px] md:text-[500px] text-white opacity-30 pointer-events-none" />
@@ -419,10 +419,10 @@ export default function LandingPage() {
                   </p>
 
                   {/* Нижняя часть: Логотип + Ссылки */}
-                  <div className="relative z-10 flex flex-col md:flex-row items-end w-full mt-16 md:mt-24 gap-8 md:gap-0">
+                  <div className="relative z-10 flex flex-col md:flex-row items-end w-full mt-8 md:mt-12 gap-8 md:gap-0">
                       
                       {/* Логотип (стоит по своей линии, но относительно экрана будет левее оси 30%, так как он в начале блока) */}
-                      <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 md:-ml-[30%] md:w-[30%] shrink-0">
+                      <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 md:-ml-[40%] md:w-[40%] shrink-0">
                           <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
                       </div>
                       
