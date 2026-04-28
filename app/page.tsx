@@ -41,6 +41,10 @@ export default function LandingPage() {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+        @keyframes marquee-reverse {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
         .mockup-shadow {
             box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.15), -10px 10px 20px rgba(0, 0, 0, 0.1);
         }
@@ -290,7 +294,7 @@ export default function LandingPage() {
       
       {/* Бегущая строка (Отзывы) */}
       <section className="py-6 bg-white overflow-hidden flex items-center justify-center">
-          <div className="w-[110%] -ml-[5%] bg-[#8B7EC8] py-6 overflow-hidden -rotate-2 shadow-xl border-y border-[#6A5AAB] relative z-10">
+          <div className="w-[120%] -ml-[10%] bg-[#8B7EC8] py-6 overflow-hidden -rotate-2 shadow-xl border-y border-[#6A5AAB] relative z-10">
               <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
               <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
 
@@ -388,20 +392,23 @@ export default function LandingPage() {
 
           {/* Финальный Лаймовый Подвал (Подписка) */}
       <section className="py-12 px-6 bg-white">
-          <div className="max-w-7xl mx-auto bg-[#D4E84D] rounded-[40px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-[400px]">
+          <div className="max-w-7xl mx-auto bg-[#D4E84D] rounded-[40px] p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row min-h-[400px]">
               
-              {/* Декоративная снежинка справа */}
-              <Asterisk weight="fill" className="absolute -right-20 -top-20 text-[400px] text-white opacity-40 pointer-events-none" />
+              {/* Декоративная снежинка слева */}
+              <Asterisk weight="fill" className="absolute -left-20 top-1/2 -translate-y-1/2 text-[400px] text-white opacity-40 pointer-events-none" />
               {/* Блик слева */}
               <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-white opacity-40 blur-[100px] rounded-full pointer-events-none"></div>
 
-              {/* Верхняя часть: Текст + Форма */}
-              <div className="relative z-10 flex flex-col items-start text-left mt-4">
+              {/* Левая пустая часть для декора (на мобилках скроем или уменьшим) */}
+              <div className="hidden md:block md:w-5/12 relative z-10"></div>
+
+              {/* Правая часть: Текст + Форма */}
+              <div className="relative z-10 flex flex-col items-start text-left mt-4 w-full md:w-7/12 md:pl-8">
                   <h2 className="text-4xl md:text-5xl font-black text-[#2D2B3D] mb-8 max-w-2xl leading-tight">
                       Присоединяйся к закрытому тесту.<br/>Пока мы всё не переделали.
                   </h2>
                   
-                  <form className="w-full max-w-md bg-white rounded-full p-2 shadow-sm flex relative hover:shadow-md transition-shadow" onSubmit={(e) => e.preventDefault()}>
+                  <form className="w-full max-w-md bg-white rounded-full p-2 shadow-sm flex relative hover:shadow-md transition-shadow" onSubmit={(e) => { e.preventDefault(); }}>
                       <div className="pl-4 flex items-center text-gray-400">
                           <EnvelopeSimple weight="bold" className="text-xl" />
                       </div>
@@ -414,20 +421,20 @@ export default function LandingPage() {
                   <p className="text-[10px] text-[#2D2B3D]/60 mt-5 font-bold uppercase tracking-widest max-w-md">
                       Пускаем волнами, чтобы сервера не легли спать вместе с нами.
                   </p>
-              </div>
 
-              {/* Нижняя часть: Логотип + Ссылки */}
-              <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end mt-20 gap-8 md:gap-0 border-t border-[#2D2B3D]/10 pt-8">
-                  {/* Логотип */}
-                  <div className="text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2">
-                      <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
-                  </div>
-                  
-                  {/* Ссылки */}
-                  <div className="flex flex-wrap gap-6 text-sm font-bold text-[#2D2B3D]/60">
-                      <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">На главную</button>
-                      <a href="#" className="hover:text-[#2D2B3D] transition-colors">Политика</a>
-                      <a href="#" className="hover:text-[#2D2B3D] transition-colors">Контакты</a>
+                  {/* Нижняя часть: Логотип + Ссылки */}
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full mt-16 pt-8 border-t border-[#2D2B3D]/10 gap-6">
+                      {/* Логотип */}
+                      <div className="text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2">
+                          <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
+                      </div>
+                      
+                      {/* Ссылки */}
+                      <div className="flex flex-wrap gap-6 text-sm font-bold text-[#2D2B3D]/60">
+                          <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">На главную</button>
+                          <a href="#" className="hover:text-[#2D2B3D] transition-colors">Политика</a>
+                          <a href="#" className="hover:text-[#2D2B3D] transition-colors">Контакты</a>
+                      </div>
                   </div>
               </div>
           </div>
