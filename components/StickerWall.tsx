@@ -159,6 +159,7 @@ export default function StickerWall() {
         });
 
         // Случайный начальный импульс (легкое вращение при падении)
+        // @ts-ignore
         Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.05);
 
         domBodies.push(body);
@@ -204,10 +205,12 @@ export default function StickerWall() {
             // Если тело спит (не двигается), можно понизить производительность, но пока не нужно
             // Если объект за пределами видимости снизу (упал мимо границ как-то), возвращаем наверх
             if (body.position.y > ch + 200) {
+                 // @ts-ignore
                  Matter.Body.setPosition(body, { 
                      x: 100 + Math.random() * (cw - 200), 
                      y: -100 
                  });
+                 // @ts-ignore
                  Matter.Body.setVelocity(body, { x: 0, y: 0 });
             }
         });
@@ -236,15 +239,18 @@ export default function StickerWall() {
         render.canvas.height = newCh;
         
         // Обновляем позиции стен
+        // @ts-ignore
         Matter.Body.setPosition(ground, { x: newCw / 2, y: newCh + 25 });
         // Увеличиваем ширину пола и потолка при ресайзе
         // @ts-ignore
         Matter.Body.setVertices(ground, Matter.Bodies.rectangle(newCw / 2, newCh + 25, newCw + 100, 50).vertices);
         
+        // @ts-ignore
         Matter.Body.setPosition(rightWall, { x: newCw + 25, y: newCh / 2 });
         // @ts-ignore
         Matter.Body.setVertices(rightWall, Matter.Bodies.rectangle(newCw + 25, newCh / 2, 50, newCh * 2).vertices);
         
+        // @ts-ignore
         Matter.Body.setPosition(leftWall, { x: -25, y: newCh / 2 });
         // @ts-ignore
         Matter.Body.setVertices(leftWall, Matter.Bodies.rectangle(-25, newCh / 2, 50, newCh * 2).vertices);
