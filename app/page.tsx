@@ -350,8 +350,6 @@ export default function LandingPage() {
           </div>
       </section>
 
-      <StickerWall />
-
       {/* Новый Подвал (Светло-серый) */}
       <section className="py-20 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
@@ -392,6 +390,7 @@ export default function LandingPage() {
           </div>
       </section>
 
+      <StickerWall />
 
           {/* Финальный Лаймовый Подвал (Подписка) — FULL WIDTH EDGE-TO-EDGE */}
       <section id="subscribe" className="w-full bg-[#D4E84D] rounded-t-[40px] pt-16 md:pt-24 pb-8 md:pb-12 relative overflow-hidden mt-[-20px] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
