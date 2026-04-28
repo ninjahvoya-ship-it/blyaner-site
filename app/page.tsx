@@ -392,50 +392,49 @@ export default function LandingPage() {
 
           {/* Финальный Лаймовый Подвал (Подписка) */}
       <section className="py-12 px-6 bg-white">
-          <div className="max-w-7xl mx-auto bg-[#D4E84D] rounded-[40px] p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row min-h-[400px]">
+          <div className="max-w-7xl mx-auto bg-[#D4E84D] rounded-[40px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-[420px]">
               
-              {/* Декоративная снежинка слева */}
-              <Asterisk weight="fill" className="absolute -left-20 top-1/2 -translate-y-1/2 text-[400px] text-white opacity-40 pointer-events-none" />
-              {/* Блик слева */}
-              <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-white opacity-40 blur-[100px] rounded-full pointer-events-none"></div>
+              {/* Декоративная снежинка */}
+              <Asterisk weight="fill" className="absolute -left-20 -top-20 text-[400px] text-white opacity-40 pointer-events-none" />
 
-              {/* Левая пустая часть для декора (на мобилках скроем или уменьшим) */}
-              <div className="hidden md:block md:w-5/12 relative z-10"></div>
-
-              {/* Правая часть: Текст + Форма */}
-              <div className="relative z-10 flex flex-col items-start text-left mt-4 w-full md:w-7/12 md:pl-8">
-                  <h2 className="text-4xl md:text-5xl font-black text-[#2D2B3D] mb-8 max-w-2xl leading-tight">
-                      Присоединяйся к закрытому тесту.<br/>Пока мы всё не переделали.
-                  </h2>
-                  
-                  <form className="w-full max-w-md bg-white rounded-full p-2 shadow-sm flex relative hover:shadow-md transition-shadow" onSubmit={(e) => { e.preventDefault(); }}>
-                      <div className="pl-4 flex items-center text-gray-400">
-                          <EnvelopeSimple weight="bold" className="text-xl" />
-                      </div>
-                      <input type="email" placeholder="Куда скинуть ссылку?" required className="flex-1 bg-transparent px-4 outline-none text-[#2D2B3D] placeholder-gray-400 font-medium" />
-                      <button type="submit" className="w-12 h-12 bg-[#2D2B3D] text-white rounded-full flex items-center justify-center hover:bg-black transition-colors shrink-0 shadow-md">
-                          <ArrowRight weight="bold" className="text-xl" />
-                      </button>
-                  </form>
-
-                  <p className="text-[10px] text-[#2D2B3D]/60 mt-5 font-bold uppercase tracking-widest max-w-md">
-                      Пускаем волнами, чтобы сервера не легли спать вместе с нами.
-                  </p>
-
-                  {/* Нижняя часть: Логотип + Ссылки */}
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full mt-16 pt-8 border-t border-[#2D2B3D]/10 gap-6">
-                      {/* Логотип */}
-                      <div className="text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2">
-                          <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
-                      </div>
+              {/* ЦЕНТРИРУЮЩИЙ КОНТЕЙНЕР */}
+              <div className="relative z-10 w-full flex justify-center mt-6">
+                  <div className="flex flex-col items-start text-left max-w-2xl w-full">
                       
-                      {/* Ссылки */}
-                      <div className="flex flex-wrap gap-6 text-sm font-bold text-[#2D2B3D]/60">
-                          <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">На главную</button>
-                          <a href="#" className="hover:text-[#2D2B3D] transition-colors">Политика</a>
-                          <a href="#" className="hover:text-[#2D2B3D] transition-colors">Контакты</a>
-                      </div>
+                      <h2 className="text-3xl md:text-5xl font-black text-[#2D2B3D] mb-8 leading-[1.1] tracking-tight">
+                          Присоединяйся к закрытому тесту.<br/>Пока мы всё не переделали.
+                      </h2>
+                      
+                      <form className="w-full max-w-md bg-white rounded-full p-1.5 shadow-sm flex relative hover:shadow-md transition-shadow" onSubmit={(e) => { e.preventDefault(); }}>
+                          <div className="pl-4 flex items-center text-gray-400">
+                              <EnvelopeSimple weight="bold" className="text-xl" />
+                          </div>
+                          <input type="email" placeholder="Куда скинуть ссылку?" required className="flex-1 bg-transparent px-4 outline-none text-[#2D2B3D] placeholder-gray-400 font-medium" />
+                          <button type="submit" className="w-10 h-10 bg-[#2D2B3D] text-white rounded-full flex items-center justify-center hover:bg-black transition-colors shrink-0">
+                              <ArrowRight weight="bold" className="text-lg" />
+                          </button>
+                      </form>
+
+                      <p className="text-[10px] text-[#2D2B3D]/50 mt-4 font-bold uppercase tracking-widest">
+                          Пускаем волнами, чтобы сервера не легли спать вместе с нами.
+                      </p>
+
                   </div>
+              </div>
+
+              {/* Нижняя часть: Логотип + Ссылки */}
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 items-end w-full mt-16 md:mt-0">
+                  <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0">
+                      <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
+                  </div>
+                  
+                  <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-sm font-bold text-[#2D2B3D]/60">
+                      <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">На главную</button>
+                      <a href="#" className="hover:text-[#2D2B3D] transition-colors">Политика</a>
+                      <a href="#" className="hover:text-[#2D2B3D] transition-colors">Контакты</a>
+                  </div>
+
+                  <div className="hidden md:block"></div>
               </div>
           </div>
       </section>
