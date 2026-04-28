@@ -292,7 +292,7 @@ export default function LandingPage() {
 
       
       {/* Бегущая строка (Отзывы) */}
-      <section id="reviews" className="py-12 bg-white overflow-hidden flex items-center justify-center relative">
+      <section id="reviews" className="py-9 bg-white overflow-hidden flex items-center justify-center relative">
           <div className="w-[120%] -ml-[10%] bg-[#8B7EC8] py-6 overflow-hidden -rotate-2 relative z-10">
               <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
               <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
@@ -396,9 +396,9 @@ export default function LandingPage() {
           <Asterisk weight="fill" className="absolute -left-32 md:-left-40 top-0 md:-top-20 text-[400px] md:text-[500px] text-white opacity-30 pointer-events-none" />
 
           {/* Верхняя часть с текстом */}
-          <div className="relative z-10 w-full flex">
-              {/* Отступ 30% от левого края экрана на десктопе */}
-              <div className="w-full px-6 md:px-0 md:ml-[30%] flex flex-col items-start text-left">
+          <div className="relative z-10 max-w-7xl mx-auto w-full flex">
+              {/* Отступ 30% от левого края контейнера на десктопе */}
+              <div className="w-full px-6 md:px-0 md:pl-[30%] flex flex-col items-start text-left">
                   
                   <h2 className="text-3xl md:text-5xl font-black text-[#2D2B3D] mb-8 leading-[1.1] tracking-tight">
                       Присоединяйся к закрытому тесту.<br />Пока мы всё не переделали.
@@ -422,7 +422,7 @@ export default function LandingPage() {
                   <div className="relative z-10 flex flex-col md:flex-row items-end w-full mt-12 md:mt-18 gap-8 md:gap-0">
                       
                       {/* Логотип (стоит по своей линии, но относительно экрана будет левее оси 30%, так как он в начале блока) */}
-                      <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 md:-ml-[40%] md:w-[40%] shrink-0">
+                      <div className="text-xl md:text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2 justify-start mb-6 md:mb-0 md:-ml-[43%] md:w-[43%] shrink-0 relative right-6 md:right-0">
                           <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
                       </div>
                       
