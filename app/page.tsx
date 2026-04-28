@@ -55,11 +55,6 @@ export default function LandingPage() {
               <div className="text-xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2">
                   <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
               </div>
-              <div className="hidden md:flex items-center gap-8 text-sm font-bold text-[#2D2B3D]/70">
-                  <button onClick={() => window.scrollTo({top: document.getElementById('features')?.offsetTop || 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">Что внутри?</button>
-                  <button onClick={() => window.scrollTo({top: document.getElementById('reviews')?.offsetTop || 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">Отзывы</button>
-                  <button onClick={() => window.scrollTo({top: document.getElementById('subscribe')?.offsetTop || 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">Подписка</button>
-              </div>
               <a href="https://blyaner.vercel.app/week" className="bg-[#D4E84D] text-[#2D2B3D] px-6 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-transform shadow-sm">
                   Войти
               </a>
