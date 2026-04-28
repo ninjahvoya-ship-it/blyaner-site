@@ -53,11 +53,18 @@ export default function LandingPage() {
 
       {/* Навигация */}
       <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-          <div className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-full px-6 py-3 flex justify-between items-center w-full max-w-5xl shadow-sm">
+          <div className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-full px-5 py-1.5 flex justify-between items-center w-full max-w-4xl shadow-sm h-[52px]">
               <div className="text-xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2">
                   <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
               </div>
-              <a href="https://blyaner.vercel.app/week" className="bg-[#D4E84D] text-[#2D2B3D] px-6 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-transform shadow-sm">
+              
+              <div className="hidden md:flex items-center gap-1 bg-gray-50 p-1 rounded-full border border-gray-100 h-[40px]">
+                  <a href="#features" className="px-4 py-1.5 rounded-full text-xs font-bold text-gray-500 hover:text-[#2D2B3D] hover:bg-white/50 transition-colors flex items-center h-full">Виджеты</a>
+                  <a href="#voices" className="px-4 py-1.5 rounded-full text-xs font-bold text-gray-500 hover:text-[#2D2B3D] hover:bg-white/50 transition-colors flex items-center h-full">Похихикать</a>
+                  <a href="#subscribe" className="px-4 py-1.5 rounded-full text-xs font-bold bg-[#D3E851] text-[#2D2B3D] shadow-sm flex items-center h-full hover:scale-105 transition-transform">Тестировать</a>
+              </div>
+
+              <a href="https://blyaner.vercel.app/week" className="bg-gray-100 text-gray-400 px-5 py-1 flex items-center rounded-full text-sm font-bold cursor-not-allowed shadow-sm hidden md:flex">
                   Войти
               </a>
           </div>
