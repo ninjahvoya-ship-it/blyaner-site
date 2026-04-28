@@ -403,7 +403,7 @@ export default function LandingPage() {
                   <div className="md:ml-[25%] flex flex-col items-start text-left max-w-2xl w-full">
                       
                       {/* Ограничиваем ширину контейнера, чтобы текст "Пока мы всё не переделали." принудительно переносился */}
-                      <h2 className="text-3xl md:text-5xl font-black text-[#2D2B3D] mb-8 leading-[1.1] tracking-tight max-w-[20rem] md:max-w-xl lg:max-w-2xl">
+                      <h2 className="text-3xl md:text-5xl font-black text-[#2D2B3D] mb-8 leading-[1.1] tracking-tight">
                           Присоединяйся к закрытому тесту.<br />Пока мы всё не переделали.
                       </h2>
                       
