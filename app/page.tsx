@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, Bed, Clock, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop, CalendarBlank, X, Trash, SlidersHorizontal, Star, Star, LockKey } from "@phosphor-icons/react";
+import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, Bed, Clock, Asterisk, ArrowRight, ArrowUp, CheckCircle, AppleLogo, AndroidLogo, Desktop, CalendarBlank, X, Trash, SlidersHorizontal, Star, EnvelopeSimple, LockKey } from "@phosphor-icons/react";
 
 export default function LandingPage() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -386,6 +386,52 @@ export default function LandingPage() {
       </section>
 
 
-    </div>
+          {/* Финальный Лаймовый Подвал (Подписка) */}
+      <section className="py-12 px-6 bg-white">
+          <div className="max-w-7xl mx-auto bg-[#D4E84D] rounded-[40px] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between min-h-[400px]">
+              
+              {/* Декоративная снежинка справа */}
+              <Asterisk weight="fill" className="absolute -right-20 -top-20 text-[400px] text-white opacity-40 pointer-events-none" />
+              {/* Блик слева */}
+              <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-white opacity-40 blur-[100px] rounded-full pointer-events-none"></div>
+
+              {/* Верхняя часть: Текст + Форма */}
+              <div className="relative z-10 flex flex-col items-start text-left mt-4">
+                  <h2 className="text-4xl md:text-5xl font-black text-[#2D2B3D] mb-8 max-w-2xl leading-tight">
+                      Присоединяйся к закрытому тесту.<br/>Пока мы всё не переделали.
+                  </h2>
+                  
+                  <form className="w-full max-w-md bg-white rounded-full p-2 shadow-sm flex relative hover:shadow-md transition-shadow" onSubmit={(e) => e.preventDefault()}>
+                      <div className="pl-4 flex items-center text-gray-400">
+                          <EnvelopeSimple weight="bold" className="text-xl" />
+                      </div>
+                      <input type="email" placeholder="Куда скинуть ссылку?" required className="flex-1 bg-transparent px-4 outline-none text-[#2D2B3D] placeholder-gray-400 font-medium" />
+                      <button type="submit" className="w-12 h-12 bg-[#2D2B3D] text-white rounded-full flex items-center justify-center hover:bg-black transition-colors shrink-0 shadow-md">
+                          <ArrowRight weight="bold" className="text-xl" />
+                      </button>
+                  </form>
+
+                  <p className="text-[10px] text-[#2D2B3D]/60 mt-5 font-bold uppercase tracking-widest max-w-md">
+                      Пускаем волнами, чтобы сервера не легли спать вместе с нами.
+                  </p>
+              </div>
+
+              {/* Нижняя часть: Логотип + Ссылки */}
+              <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end mt-20 gap-8 md:gap-0 border-t border-[#2D2B3D]/10 pt-8">
+                  {/* Логотип */}
+                  <div className="text-2xl font-black text-[#2D2B3D] tracking-tight flex items-center gap-2">
+                      <Asterisk weight="fill" className="text-[#8B7EC8]" /> Блянер
+                  </div>
+                  
+                  {/* Ссылки */}
+                  <div className="flex flex-wrap gap-6 text-sm font-bold text-[#2D2B3D]/60">
+                      <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-[#2D2B3D] transition-colors">На главную</button>
+                      <a href="#" className="hover:text-[#2D2B3D] transition-colors">Политика</a>
+                      <a href="#" className="hover:text-[#2D2B3D] transition-colors">Контакты</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+</div>
   );
 }
