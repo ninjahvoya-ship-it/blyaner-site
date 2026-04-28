@@ -289,7 +289,7 @@ export default function LandingPage() {
 
       
       {/* Бегущая строка (Отзывы) */}
-      <section className="py-12 bg-white overflow-hidden flex items-center justify-center">
+      <section className="py-6 bg-white overflow-hidden flex items-center justify-center">
           <div className="w-[110%] -ml-[5%] bg-[#8B7EC8] py-6 overflow-hidden -rotate-2 shadow-xl border-y border-[#6A5AAB] relative z-10">
               <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
               <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-[#8B7EC8] to-transparent z-20 pointer-events-none"></div>
