@@ -6,12 +6,41 @@ import { MoonStars, Sun, Play, Timer, PaintBrush, FolderOpen, Bed, Clock, Asteri
 
 import StickerWall from "../components/StickerWall";
 
+import { supabase } from "../lib/supabase";
+
 export default function LandingPage() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
+  };
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+
+    try {
+      const { error } = await supabase
+        .from('waitlist_emails')
+        .insert([{ email }]);
+
+      if (error) {
+        console.error("Supabase insert error:", error);
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+      setEmail("");
+    } catch (err) {
+      console.error("Unknown error:", err);
+      setStatus("error");
+    }
   };
 
   // Простой IntersectionObserver для подсветки активного пункта меню
@@ -435,15 +464,43 @@ export default function LandingPage() {
                       Присоединяйся к закрытому тесту.<br />Пока мы всё не переделали.
                   </h2>
                   
-                  <form className="w-full max-w-md bg-white rounded-full p-1.5 shadow-sm flex relative hover:shadow-md transition-shadow" onSubmit={(e) => { e.preventDefault(); }}>
+                  <form className="w-full max-w-md bg-white rounded-full p-1.5 shadow-sm flex relative hover:shadow-md transition-shadow" onSubmit={handleSubscribe}>
                       <div className="pl-4 flex items-center text-gray-400">
                           <EnvelopeSimple weight="bold" className="text-xl" />
                       </div>
-                      <input type="email" placeholder="Куда скинуть ссылку?" required className="flex-1 bg-transparent px-4 outline-none text-[#2D2B3D] placeholder-gray-400 font-medium" />
-                      <button type="submit" className="w-12 h-12 bg-[#2D2B3D] text-white rounded-full flex items-center justify-center hover:bg-[#8B7EC8] transition-colors shrink-0">
-                          <ArrowRight weight="bold" className="text-lg" />
+                      <input 
+                          type="email" 
+                          placeholder={status === "success" ? "Почта сохранена! Жди письмо 🔥" : "Куда скинуть ссылку?"}
+                          required 
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          disabled={status === "loading" || status === "success"}
+                          className="flex-1 bg-transparent px-4 outline-none text-[#2D2B3D] placeholder-gray-400 font-medium disabled:opacity-70" 
+                      />
+                      <button 
+                          type="submit" 
+                          disabled={status === "loading" || status === "success"}
+                          className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors shrink-0 ${
+                            status === "success" 
+                              ? "bg-[#D4E84D] text-[#2D2B3D]" 
+                              : "bg-[#2D2B3D] text-white hover:bg-[#8B7EC8]"
+                          } disabled:cursor-not-allowed`}
+                      >
+                          {status === "loading" ? (
+                             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          ) : status === "success" ? (
+                             <CheckCircle weight="bold" className="text-xl" />
+                          ) : (
+                             <ArrowRight weight="bold" className="text-lg" />
+                          )}
                       </button>
                   </form>
+
+                  {status === "error" && (
+                    <p className="text-red-500 text-sm font-bold mt-2 ml-4">
+                      Ой, что-то пошло не так. Попробуй еще раз.
+                    </p>
+                  )}
 
                   <p className="text-[10px] text-[#2D2B3D]/50 mt-4 font-bold uppercase tracking-widest">
                       Пускаем волнами, чтобы сервера не легли спать вместе с нами.
